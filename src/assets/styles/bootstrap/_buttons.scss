@@ -1,0 +1,388 @@
+//
+// Base styles
+//
+
+.btn {
+  display: inline-block;
+  font-family: $btn-font-family;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  text-align: center;
+  text-decoration: if($link-decoration == none, null, none);
+  white-space: $btn-white-space;
+  vertical-align: middle;
+  cursor: if($enable-button-pointers, pointer, null);
+  user-select: none;
+  background-color: transparent;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+  @include transition($btn-transition);
+
+  &:hover {
+    color: $body-color;
+    text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+
+  .btn-check:focus + &,
+  &:focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+  }
+
+  &:disabled,
+  &.disabled,
+  fieldset:disabled & {
+    pointer-events: none;
+    opacity: $btn-disabled-opacity;
+    filter: brightness(.7);
+  }
+
+  &.btn-primary {
+    color: #ffff;
+    background: repeating-linear-gradient(#1E7295, #1E7295 50%, #1a6280 50%, #1a6280 100%);
+    border-color: #0f3b4d;
+    box-shadow: inset 0 0 0 1px #299ccc;
+
+    &:hover {
+      color: #fff;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #299ccc;
+    }
+
+    &:focus {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #299ccc;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);;
+    }
+  }
+
+  &.btn-secondary {
+    color: #fff;
+    background: repeating-linear-gradient(#16688A, #16688A 50%, #125774 50%, #125774 100%);
+    border-color: #0a303f;
+    box-shadow: inset 0 0 0 1px #1f93c3;
+
+    &:hover {
+      color: #fff;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #1f93c3;
+    }
+
+    &:focus {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #1f93c3;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-black {
+    color: #fff;
+    background: repeating-linear-gradient(#000, #000 50%, black 50%, black 100%);
+    border-color: #000;
+    box-shadow: inset 0 0 0 1px #212121;
+
+    &:hover {
+      color: #fff;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #212121;
+    }
+
+    &:focus {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #212121;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-white {
+    color: #000;
+    background: repeating-linear-gradient(#fff, #fff 50%, #f2f2f2 50%, #f2f2f2 100%);
+    border-color: #d4d4d4;
+    box-shadow: inset 0 0 0 1px #fff;
+
+    &:hover {
+      color: #000;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+
+    &:focus {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-silver {
+    color: #000;
+    background: repeating-linear-gradient(#DBE2E8, #DBE2E8 50%, #cbd5de 50%, #cbd5de 100%);
+    border-color: #a6b7c6;
+    box-shadow: inset 0 0 0 1px #fff;
+
+    &:hover {
+      color: #000;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+
+    &:focus {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-muted {
+    color: #000;
+    background: repeating-linear-gradient(#c1cbd7, #c1cbd7 50%, #b2becd 50%, #b2becd 100%);
+    border-color: #8c9fb5;
+    box-shadow: inset 0 0 0 1px #e9edf1;
+
+    &:hover {
+      color: #000;
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #e9edf1;
+    }
+
+    &:focus {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #e9edf1;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-danger {
+    color: #ffff;
+    background: repeating-linear-gradient(#b82d1d, #b82d1d 50%, #a22819 50%, #a22819 100%);
+    border-color: #6d1b11;
+    box-shadow: inset 0 0 0 1px #e04937;
+
+    &:hover {
+      color: #fff;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #e04937;
+    }
+
+    &:focus {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #e04937;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-success {
+    color: #ffff;
+    background: repeating-linear-gradient(#00800b, #00800b 50%, #006709 50%, #006709 100%);
+    border-color: #002904;
+    box-shadow: inset 0 0 0 1px #00c211;
+
+    &:hover {
+      color: #fff;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #00c211;
+    }
+
+    &:focus {
+      color: #fff;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #00c211;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+
+  &.btn-warning {
+    color: #000;
+    background: repeating-linear-gradient(#FFCB00, #FFCB00 50%, #e6b700 50%, #e6b700 100%);
+    border-color: #a88600;
+    box-shadow: inset 0 0 0 1px #ffd942;
+
+    &:hover {
+      color: #000;
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #ffd942;
+    }
+
+    &:focus {
+      color: #000;
+      filter: brightness(.9);
+      box-shadow: inset 0 0 0 2px #ffd942;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .75;
+      filter: brightness(.7);
+    }
+  }
+}
+
+
+
+
+//
+// Alternate buttons
+//
+
+// scss-docs-start btn-variant-loops
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+// scss-docs-end btn-variant-loops
+
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none !important;
+
+  &:active {
+    color: $btn-link-color !important;
+  }
+
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+
+  // No need for an active state here
+}
+
+
+//
+// Button Sizes
+//
+
+.btn-lg {
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+}
+
+.btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}

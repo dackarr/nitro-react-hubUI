@@ -1,0 +1,101 @@
+::-webkit-scrollbar {
+    width: 17px;
+
+    &:horizontal {
+        height: 17px;
+    }
+
+    &:not(:horizontal) {
+        width: 17px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background-image: url("@/assets/images/card/track.png");
+
+    &:horizontal {
+        background-image: url("@/assets/images/card/track-horizontal.png");
+        pointer-events: all;
+        height: 17px
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: url("@/assets/images/card/track-thumb1.png"), url("@/assets/images/card/track-thumb2.png"), url("@/assets/images/card/track-thumb3.png");
+    background-repeat: no-repeat, no-repeat, repeat-y;
+    background-position: 0 0, bottom, 0 7px;
+
+    &:horizontal {
+        background-image: url("@/assets/images/card/thumb-hor-1.png"), url("@/assets/images/card/thumb-hor-2.png"), url("@/assets/images/card/thumb-hor-3.png");
+        background-repeat: no-repeat,no-repeat,repeat-x;
+        background-position: 0 0,right,0 0px;
+        height: 17px;
+
+        &:active {
+            background-image: url("@/assets/images/card/thumb-hor-active-1.png"), url("@/assets/images/card/thumb-hor-active-2.png"), url("@/assets/images/card/thumb-hor-active-3.png");
+        }
+    }
+
+    &:active {
+        background-image: url("@/assets/images/card/track-active-thumb1.png"), url("@/assets/images/card/track-active-thumb2.png"), url("@/assets/images/card/track-active-thumb3.png");
+    }
+}
+
+
+::-webkit-scrollbar-button {
+    &:vertical {
+        &:start {
+            &:decrement {
+                height: 16px;
+                display: block;
+                background-image: url(@/assets/images/card/tracker.png);
+
+                &:active {
+                    background-image: url(@/assets/images/card/tracker-active.png);
+                }
+            }
+        }
+
+        &:end {
+            &:increment {
+                background-image: url(@/assets/images/card/tracker.png);
+                background-position-y: 16px;
+                height: 16px;
+                display: block;
+
+                &:active {
+                    background-image: url(@/assets/images/card/tracker-active.png);
+                }
+            }
+        }
+    }
+
+    &:horizontal {
+        &:start {
+            &:decrement {
+                height: 16px;
+                width: 16px;
+                display: block;
+                background-image: url(@/assets/images/card/tracker-hori.png);
+
+                &:active {
+                    background-image: url(@/assets/images/card/tracker-active-hori.png);
+                }
+            }
+        }
+
+        &:end {
+            &:increment {
+                height: 16px;
+                width: 16px;
+                display: block;
+                background-position-x: 16px;
+                background-image: url("@/assets/images/card/tracker-hori.png");
+
+                &:active {
+                    background-image: url("@/assets/images/card/tracker-active-hori.png");
+                }
+            }
+        }
+    }
+}

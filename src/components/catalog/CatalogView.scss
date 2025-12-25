@@ -1,0 +1,279 @@
+.nitro-catalog {
+    width: $catalog-width;
+    height: $catalog-height;
+    min-width: $catalog-width;
+    min-height: $catalog-height;
+
+    font[size='16'] {
+        font-size: 20px;
+    }
+
+    .catalog-search-button {
+        min-width: 28px;
+        width: 28px;
+        height: 24px;
+    }
+
+    .quantity-input {
+        min-height:17px;
+        height:17px;
+        width:28px;
+        padding:0 4px;
+        text-align:right
+    }
+
+    &.catalog-price {
+        background-color:var(--currency-color, #c1cbd7);
+        border:1px solid var(--currency-color-dark, #899cb3);
+        box-shadow:inset 0 0 0 2px var(--currency-color-light, #e9edf1);
+        border-radius:.25rem;
+        padding:6px;
+        font-size:12px;
+        align-self:flex-end
+    }
+}
+
+.nitro-catalog-gift {
+    width: 325px;
+
+    .gift-preview {
+        width:80px;
+        height:80px;
+        overflow:hidden;
+        display:flex;
+        justify-content:center;
+        align-items:center
+    }
+
+    .gift-color {
+        width: 15px;
+        height: 15px;
+        border-radius: $border-radius;
+    }
+}
+
+.catalog-navigation-arrow{
+    width:13px;
+    height:9px;
+    background-image:url('@/assets/images/catalog/arrow.png');
+    padding-right: 13px;
+
+    &.open {
+        background-position:0 9px;
+    }
+}
+
+.catalog-navigation {
+    width:175px;
+    flex-shrink:0;
+
+    &.nitro-catalog-navigation-grid-container {
+        border-color: #b6bec5 !important;
+        background-color: #cdd3d9;
+        border: 2px solid;
+        
+        .nitro-catalog-main-navigation {
+            gap: 4px!important;
+            overflow-x: hidden !important;
+        }
+
+        .nitro-catalog-navigation-section {
+            display:flex;
+            flex-direction:column;
+            gap:4px;
+
+            .nitro-catalog-navigation-section {
+                padding-left:3px;
+                max-width: 163px;
+
+                .layout-grid-item {
+                background:#DFDFDF;
+                border:none;
+                box-shadow:none;
+
+                    &.active {
+                        background:#1E7295;
+                        border:1px solid #114155;
+                        box-shadow:inset 0 0 0 1px #299ccc
+                    }
+
+                    &:hover {
+                        background:#2ba3d4;
+                        border:1px solid #1E7295;
+                        box-shadow:inset 0 0 0 1px #78c4e4
+                    }
+                }
+            }
+        }
+
+        .layout-grid-item {
+            font-size: $font-size-sm;
+            height:24px!important;
+            background:repeating-linear-gradient(#c1cbd7,#c1cbd7 50%,#b2becd 50%,#b2becd 100%);
+            border:1px solid #a2b1c3;
+            box-shadow:inset 0 0 0 1px #e9edf1;
+            border-radius:.2rem;
+            border-bottom-width:2px;
+            padding:1px 3px;
+            max-width: 163px;
+
+            &.active {
+                background:repeating-linear-gradient(#DFDFDF,#DFDFDF 50%,#d2d2d2 50%,#d2d2d2 100%);
+                border:1px solid #a2b1c3;
+                box-shadow:inset 0 0 0 1px #fff,0 1px #28282854
+            }
+
+            .svg-inline--fa {
+                color: $black;
+                font-size: 10px;
+                padding: 1px;
+            }
+        }
+    }
+}
+
+.nitro-catalog-layout-info-loyalty {
+    .info-loyalty-content {
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-image: url('@/assets/images/catalog/diamond_info_illustration.gif');
+        padding-right: 123px;
+    }
+
+    .info-image {
+        width: 123px;
+        height: 350px;
+        background-image: url('@/assets/images/catalog/diamond_info_illustration.gif');
+    }
+}
+
+.catalog-item-preview {
+    min-height: 255px;
+}
+
+.nitro-catalog-items-grid {
+    height: 100%;
+    min-height: 35px;
+    padding: 6px;
+    overflow: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #c1cbd7;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #8397af;
+    box-shadow: inset 0 0 0 1px #e9edf1;
+    border-bottom-width: 2px;
+    border-radius: 0.25rem;
+
+    &.purchase-replacement {
+        margin-top: 8px;
+        height: 35px;
+    }
+
+    .layout-grid-item {
+        height: 44px;
+        width: 44px;
+    }
+
+    .grid {
+        overflow-x: hidden !important;
+    }
+}
+
+.nitro-catalog-forum {
+    padding: 10%;
+    padding-top: 0;
+}
+
+.nitro-room-event {
+    .nitro-room-event-input {
+        height: 30px;
+
+        &.description {
+            height: 160px;
+        }
+    }
+}
+
+.forum-purchase-btn {
+    padding-left: 60%;
+}
+
+.nitro-catalog-layout-vip-buy-grid {
+    .layout-grid-item {
+        height: 80px !important;
+        max-height: 80px !important;
+
+        .title {
+            background: #8397af;
+            border-radius: 0.25em;
+        }
+
+        .icon-hc-banner {
+            width: 68px;
+            height: 40px;
+            background: url('@/assets/images/catalog/hc_big.png') center
+                no-repeat;
+        }
+    }
+}
+
+.nitro-catalog-layout-marketplace-grid {
+    .layout-grid-item {
+        height: 75px !important;
+    }
+}
+
+.nitro-catalog-layout-vip-gifts-grid {
+    .layout-grid-item {
+        height: 55px !important;
+        max-height: 55px !important;
+    }
+}
+
+.nitro-catalog-layout-marketplace-post-offer {
+    width: $marketplace-post-offer-width;
+    height: $marketplace-post-offer-height;
+}
+
+.nitro-catalog-layout-bundle-grid {
+    .layout-grid-item {
+        background-color: transparent;
+    }
+}
+
+.nitro-catalog-header {
+    width: 290px;
+    height: 60px;
+}
+
+.autocomplete-gift-container {
+    background: #fff;
+    padding: 8px;
+    list-style-type: none;
+    min-width: 307px;
+    border-radius: 0.2rem;
+    position: absolute;
+    font-size: 0.7875rem;
+    top: 81px;
+    left: 8px;
+    border: 1px solid #b6c1ce;
+    margin: 0;
+    border-radius: 2px;
+    margin: 0;
+    box-sizing: border-box;
+    max-height: 280px;
+    overflow-y: auto;
+    z-index: 1;
+
+    .autocomplete-gift-item {
+        width: 100%;
+        box-sizing: border-box;
+        &:hover {
+            background-color: #ebf4ff;
+        }
+    }
+}
+
+@import './views/targeted-offer/Offer.scss';

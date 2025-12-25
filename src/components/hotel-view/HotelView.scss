@@ -1,0 +1,150 @@
+.nitro-hotel-view {
+	display: block;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background: url('@/assets/images/landingview/grass.png') !important;
+	color:#fff;
+
+
+	.avatar-image {
+		bottom: 205px;
+		background-position: 232px 681px;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 2;
+	}
+
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		background-position: center;
+		background-size: cover;
+	}
+
+	.drape {
+		width: 100%;
+		height: 100%;
+		left: 100px;
+		top: 0;
+		animation-iteration-count: 1;
+		animation-name: slideDown;
+		animation-duration: 1s;
+		z-index: 3;
+		background-repeat: no-repeat;
+	}
+
+	.crossroads {
+		background: url('@/assets/images/landingview/crossroads.png');
+		width: 2227px;
+		height: 1144px;
+	}
+	
+	.left-normal {
+		background: url('@/assets/images/landingview/left_normal.png');
+		width: 1613px;
+		height: 807px;
+	}
+
+	.overlay {
+		background: url('@/assets/images/landingview/overlay.png');
+		width: 1613px;
+		height: 807px;
+	}
+
+	.text-welcome-message {
+		padding: 10px 10px 10px 66px;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 15px;
+		width: 230px;
+
+		.subtitle {
+			font-size: 10px;
+		}
+	}
+
+	.car {
+		position: absolute;
+		z-index: 5;
+	}
+
+	.welcome-message {
+		z-index: 1 !important;
+		width: 100%;
+		position: absolute;
+		bottom: 575px;
+		left: 240px;
+		height: 81px;
+	}
+
+	.sun {
+		background-image: url('@/assets/images/landingview/overlay.png') !important;
+		width: 1920px;
+		height: 1080px;
+		top: -1902px;
+		left: -154px;
+		z-index: 3;
+		position: relative !important;
+		margin: auto;
+		background-repeat: no-repeat;
+		background-position: top center;
+	}
+
+	.left {
+		background-image: url('@/assets/images/landingview/left_normal.png') !important;
+		background: no-repeat;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		z-index: 1;
+		animation-iteration-count: 1;
+		animation-name: slideUp;
+		animation-duration: 1s;
+	}
+
+	.right {
+		width: 100vw;
+		height: 200vh;
+		top: 0;
+		position: inherit;
+		z-index: 11;
+		animation-iteration-count: 1;
+		animation-name: slideUp;
+		animation-duration: 1s;
+		background-repeat: no-repeat;
+		background-position: 44px 160px;
+	}
+
+	.right-repeat {
+		width: 100%;
+		height: 100%;
+		right: 0;
+		top: 0;
+		background-repeat: no-repeat;
+		background-position: right top;
+	}
+
+	.landing-widgets {
+		z-index: 9;
+		position: relative;
+
+	}
+
+	.widget-slot {
+		z-index: 9;
+	}
+
+	hr {
+		background: $black;
+		box-shadow: 0 1px rgba($white,.5);
+		opacity: 0.5
+	}
+}
+
+@import './views/widgets/HotelViewWidgets';
+@import './views/widgets/new-landing/CarAnimationView';

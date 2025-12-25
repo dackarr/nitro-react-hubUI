@@ -1,0 +1,44 @@
+.nitro-purse-container {
+    font-size: $font-size-sm;
+    pointer-events: all;
+
+    .nitro-purse {
+    
+        .nitro-purse-subscription {
+            background-color: #dfdfdf1a;
+        }
+    
+        .nitro-purse-button {
+            height:27px;
+            border:1px solid black;
+            background:repeating-linear-gradient(#3A3A3A,#3A3A3A 50%,#2d2d2d 50%,#2d2d2d 100%);
+            box-shadow:inset 0 0 0 1px #545454,0 2px #28282854;
+            overflow:hidden;
+            padding-left:7px;
+            align-items: center;
+            justify-content: end;
+            display: flex !important;
+
+            &:hover {
+                filter:brightness(1.2)
+            }
+
+            &.nitro-purse-currency {
+                background-color:var(--currency-color, rgba(87, 87, 87, .5019607843));
+                max-width:25px;
+                min-width:25px;
+                display:flex;
+                justify-content:center;
+                box-shadow:inset 0 1px #545454,inset 0 -1px #545454,inset -1px 0 #545454,inset 1px 0 #545454;
+                border-left:1px solid black;
+                padding: 0;
+                margin-left: 7px;
+            }
+        }
+    }
+
+    .nitro-purse-seasonal-currency {
+        background-color:#282828f2;
+        box-shadow:inset 0 5px #2e2e2e99,inset 0 -4px #1e1e1e99
+    }
+}

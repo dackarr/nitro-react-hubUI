@@ -1,0 +1,44 @@
+import { FC, useMemo } from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { LocalizeFormattedNumber, LocalizeShortNumber } from '../../../api';
+import { Flex, LayoutCurrencyIcon, Text } from '../../../common';
+
+interface CurrencyViewProps
+{
+    type: number;
+    amount: number;
+    short: boolean;
+}
+
+export const CurrencyView: FC<CurrencyViewProps> = props =>
+{
+    const { type = -1, amount = -1, short = false } = props;
+
+    const element = useMemo(() =>
+    {
+        return (
+            <Flex fullWidth>
+                <Flex justifyContent="end" pointer gap={ 1 } className="nitro-purse-container nitro-purse-button rounded w-100">
+                    <Text truncate textEnd variant="white" grow>{ short ? LocalizeShortNumber(amount) : LocalizeFormattedNumber(amount) }</Text>
+                    <Flex className="nitro-purse-button nitro-purse-currency">
+                        <LayoutCurrencyIcon type={ type } />
+                    </Flex>
+                </Flex>
+            </Flex>
+            );
+    }, [ amount, short, type ]);
+
+    if(!short) return element;
+    
+    return (
+        <OverlayTrigger
+            placement="left"
+            overlay={
+                <Tooltip id={ `tooltip-${ type }` }>
+                    { LocalizeFormattedNumber(amount) }
+                </Tooltip>
+            }>
+            { element }
+        </OverlayTrigger>
+    );
+}

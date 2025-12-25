@@ -1,0 +1,60 @@
+.nitro-notification-center-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: calc(100% - #{$toolbar-height});
+    z-index: $notification-center-zindex;
+    pointer-events: none;
+
+    .nitro-notification-center {
+        background-color: $dark;
+        height: 100%;
+        pointer-events: all;
+    }
+}
+
+.nitro-alert {
+    min-height: 150px;
+    max-height: 350px;
+
+    .notification-frank {
+        background-image: url('@/assets/images/notifications/frank.gif');
+        width:47px;
+        height: 85px;
+    }
+
+    .notification-text {
+        min-width: 250px;
+    }
+
+    &.nitro-alert-default,
+    &.nitro-alert-motd {
+        width: 350px;
+        .notification-text {
+            min-width: auto;
+        }
+    }
+
+    &.nitro-alert-moderation,
+    &.nitro-alert-alert {
+        width: 250px;
+        .notification-text {
+            min-width: 225px;
+        }
+    }
+}
+
+.nitro-notification-bubble {
+    pointer-events:all;
+    padding:6px 5px;
+    background-color:#3a3a3a;
+    box-shadow:inset 0 0 0 1px #606060,0 2px #28282854;
+    font-size:.721875rem;
+    border:1px solid black;
+
+    .bubble-image-container {
+        width: 50px;
+        height: 50px;
+    }
+}

@@ -1,0 +1,22 @@
+import { FC, useMemo } from 'react';
+import { Flex, FlexProps } from '../..';
+
+export const NitroCardTabsView: FC<FlexProps> = props =>
+{
+    const { justifyContent = 'start', gap = 1, classNames = [], children = null, ...rest } = props;
+
+    const getClassNames = useMemo(() =>
+    {
+        const newClassNames: string[] = [ 'nitro-card-tabs' ];
+
+        if(classNames.length) newClassNames.push(...classNames);
+
+        return newClassNames;
+    }, [ classNames ]);
+
+    return (
+        <Flex justifyContent={ justifyContent } gap={ gap } classNames={ getClassNames } { ...rest }>
+            { children }
+        </Flex>
+    );
+}
