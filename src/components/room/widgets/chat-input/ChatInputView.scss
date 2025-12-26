@@ -92,3 +92,57 @@
         }
     }
 }
+
+.hub-emoji-picker {
+    background: #c1cbd7;
+    box-shadow: inset 0 0 0 1px #e9edf1, 0 2px #28282854;
+    border: 1px solid black;
+    border-radius: 5px;
+    z-index: 2;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    .layout-grid-item {
+        font-size: 33px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        z-index: 3;
+
+        &.layout-inner:hover {
+            background-color: #93a4b9;
+            box-shadow: inset 0 1px #0003, 0 1px #e9edf1;
+            border: 1px solid #647d9b;
+            cursor: pointer;
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 13px;
+        width: 13px;
+        transform: rotate(45deg);
+        background-color: #c1cbd7;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        box-shadow: inset 0 -1px #e9edf1, inset -1px 0 #e9edf1;
+    }
+
+    .Alt-Codes .layout-grid-item {
+        font-size: 1.03125rem;
+        color: #000;
+    }
+}

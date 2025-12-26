@@ -9,6 +9,16 @@
     background-repeat: no-repeat;
     background-position: center;
 
+    &.icon-emojis {
+        background: url('@/assets/images/icons/emoji_list.png');
+        width:18px;
+        height:16px;
+
+        &:hover {
+            background: url('@/assets/images/icons/emoji_list.gif');
+        }
+    }
+
     &.icon-motto {
         background: url('@/assets/images/icons/motto.png');
         width:17px;
