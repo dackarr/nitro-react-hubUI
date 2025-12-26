@@ -576,12 +576,12 @@
 }
 
 .nitro-progress-bar {
-    border: 1px solid $white;
-    padding: 2px;
-    height: 20px;
-    border-radius: $border-radius;
-    overflow: hidden;
-    background: $primary;
+    border:1px solid #fff;
+    padding:2px;
+    height:20px;
+    border-radius:.25rem;
+    overflow:hidden;
+    background:#1E7295;
 
     &.large {
         height: 30px;
@@ -592,10 +592,7 @@
         z-index: 1;
         transition: all 1s;
         border-radius: calc(#{$border-radius} / 2);
-        background: repeating-linear-gradient($tertiary,
-                $tertiary 50%,
-                $quaternary 50%,
-                $quaternary 100%);
+        background: repeating-linear-gradient(#8ADAFF,#8ADAFF 50%,#57caff 50%,#57caff 100%);
     }
 
     .nitro-progress-bar-text {

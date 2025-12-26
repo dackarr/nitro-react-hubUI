@@ -15,18 +15,15 @@ export const LoadingView: FC<LoadingViewProps> = props =>
     return (
         <Column fullHeight position="relative" className="nitro-loading">
             <Base fullHeight className="container h-100">
-                <Column fullHeight alignItems="center" justifyContent="end">
-                    <Base className="connecting-duck" />
+                <Column  fullHeight alignItems="center" justifyContent="evenly">
+                    <Column>
+                        <Base className="connecting-duck" />
+                    </Column>
                     <Column size={ 6 } className="text-center py-4">
-                        { isError && (message && message.length) ?
-                            <Base className="fs-4 text-shadow">{ message }</Base>
-                            :
-                            <>
-                                <Text fontSize={ 4 } variant="white" className="text-shadow">{ percent.toFixed() }%</Text>
-                                <LayoutProgressBar progress={ percent } className="mt-2 large" />
-                            </>
-                        }
-                        
+                        <>
+                            <LayoutProgressBar progress={ percent } className="mt-2 large" />
+                            { isError && (message && message.length) ? <Base className="fs-4 text-shadow">{ message }</Base> : <Text fontSize={ 4 } variant="white" className="text-shadow">{ percent.toFixed() }%</Text> }
+                        </>
                     </Column>
                 </Column>
             </Base>
