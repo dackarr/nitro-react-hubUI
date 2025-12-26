@@ -14,7 +14,7 @@ export const UserProfileIconView: FC<UserProfileIconViewProps> = props =>
 
     const getClassNames = useMemo(() =>
     {
-        const newClassNames: string[] = [ 'nitro-friends-spritesheet', 'icon-profile-sm' ];
+        const newClassNames: string[] = [ 'icon', 'icon-eye' ];
 
         if(classNames.length) newClassNames.push(...classNames);
 

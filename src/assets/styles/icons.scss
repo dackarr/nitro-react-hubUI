@@ -9,6 +9,34 @@
     background-repeat: no-repeat;
     background-position: center;
 
+    &.icon-motto {
+        background: url('@/assets/images/icons/motto.png');
+        width:17px;
+        height:16px;
+    }
+
+    &.icon-hand {
+        width:15px;
+        height:13px;
+        background: url('@/assets/images/icons/hand.png');
+    }
+
+    &.icon-eye {
+        width:15px;
+        height:10px;
+        background: url('@/assets/images/icons/eye.png');
+
+        &:hover {
+            transform:scaleX(-1)
+        }
+    }
+
+    &.icon-achievements-mini {
+        background: url('@/assets/images/icons/achievements.png');
+        height:16px;
+        width:17px
+    }
+
     &.icon-nitro-light {
         background-image: url('@/assets/images/nitro/nitro-n-light.svg');
     }
@@ -157,9 +185,9 @@
     }
 
     &.icon-help {
-        background: url('@/assets/images/icons/help.png');
+        background: url('@/assets/images/toolbar/icons/help.png');
         width: 13px;
-        height: 23px;
+        height: 15px;
     }
 
     &.icon-joinroom {
@@ -181,7 +209,7 @@
     }
 
     &.icon-message {
-        background-image: url('@/assets/images/toolbar/icons/message.png');
+        background-image: url('@/assets/images/toolbar/icons/messenger.png');
         width: 36px;
         height: 32px;
 

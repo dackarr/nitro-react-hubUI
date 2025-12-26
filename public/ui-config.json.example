@@ -108,6 +108,12 @@
         0,
         5
     ],
+    "currency.asset.colors": {
+        "-1": "#E9B329",
+        "0": "#BA55D3",
+        "5": "#40E0D0",
+        "101": "#7FFF00"
+    },
     "catalog.links": {
         "hc.buy_hc": "habbo_club",
         "hc.hc_gifts": "club_gifts",

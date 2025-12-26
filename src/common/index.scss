@@ -315,10 +315,11 @@
 
     .badge-information {
         position: absolute;
+        border: 1px solid black;
         pointer-events: none;
         user-select: none;
         width: 210px;
-        border-radius: $border-radius;
+        border-radius: $border-radius-sm;
         background: $white;
         left: -220px;
         z-index: 100;

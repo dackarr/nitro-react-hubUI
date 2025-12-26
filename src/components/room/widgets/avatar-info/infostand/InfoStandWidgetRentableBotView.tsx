@@ -2,7 +2,7 @@ import { BotRemoveComposer } from '@nitrots/nitro-renderer';
 import { FC, useMemo } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { AvatarInfoRentableBot, BotSkillsEnum, LocalizeText, SendMessageComposer } from '../../../../../api';
-import { Button, Column, Flex, LayoutAvatarImageView, LayoutBadgeImageView, Text, UserProfileIconView } from '../../../../../common';
+import { Base, Button, Column, Flex, LayoutAvatarImageView, LayoutBadgeImageView, Text, UserProfileIconView } from '../../../../../common';
 
 interface InfoStandWidgetRentableBotViewProps
 {
@@ -28,57 +28,68 @@ export const InfoStandWidgetRentableBotView: FC<InfoStandWidgetRentableBotViewPr
     if(!avatarInfo) return;
 
     return (
-        <Column gap={ 1 }>
-            <Column className="nitro-infostand rounded">
-                <Column overflow="visible" className="container-fluid content-area" gap={ 1 }>
-                    <Column gap={ 1 }>
-                        <Flex alignItems="center" justifyContent="between" gap={ 1 }>
-                            <Text variant="white" small wrap>{ avatarInfo.name }</Text>
-                            <FaTimes className="cursor-pointer fa-icon" onClick={ onClose } />
+        <Column gap={1}>
+            <Column gap={0} className='nitro-card rounded-1 theme-primary-dark'>
+                <Column center position="relative" className='container-fluid nitro-card-header'>
+                    <Flex gap={1} fullWidth>
+                        <span className="nitro-card-header-text cursor-pointer">{ avatarInfo.name }</span>
+                        <Flex center position="absolute" className="end-2 nitro-card-header-close" onClick={ onClose }>
+                            <FaTimes className="fa-icon w-12 h-12" />
                         </Flex>
-                        <hr className="m-0" />
-                    </Column>
-                    <Column gap={ 1 }>
-                        <Flex gap={ 1 }>
-                            <Column fullWidth className="body-image bot">
-                                <LayoutAvatarImageView figure={ avatarInfo.figure } direction={ 4 } />
-                            </Column>
-                            <Column grow center gap={ 0 }>
-                                { (avatarInfo.badges.length > 0) && avatarInfo.badges.map(result =>
-                                {
-                                    return <LayoutBadgeImageView key={ result } badgeCode={ result } showInfo={ true } />;
-                                }) }
-                            </Column>
-                        </Flex>
-                        <hr className="m-0" />
-                    </Column>
-                    <Column gap={ 1 }>
-                        <Flex alignItems="center" className="bg-light-dark rounded py-1 px-2">
-                            <Text fullWidth wrap textBreak variant="white" small className="motto-content">{ avatarInfo.motto }</Text>
-                        </Flex>
-                        <hr className="m-0" />
-                    </Column>
-                    <Column gap={ 1 }>
-                        <Flex alignItems="center" gap={ 1 }>
-                            <UserProfileIconView userId={ avatarInfo.ownerId } />
-                            <Text variant="white" small wrap>
-                                { LocalizeText('infostand.text.botowner', [ 'name' ], [ avatarInfo.ownerName ]) }
-                            </Text>
-                        </Flex>
-                        { (avatarInfo.carryItem > 0) &&
-                            <>
-                                <hr className="m-0" />
-                                <Text variant="white" small wrap>
-                                    { LocalizeText('infostand.text.handitem', [ 'item' ], [ LocalizeText('handitem' + avatarInfo.carryItem) ]) }
-                                </Text>
-                            </> }
-                    </Column>
+                    </Flex>
                 </Column>
+                <Flex className="text-black container-fluid content-area" gap={1} overflow="visible">
+                    <Column className="nitro-infostand rounded" overflow="visible">
+                        <Column overflow="visible" className="container-fluid" gap={1}>
+                            <Column gap={1}>
+                                <Flex gap={1}>
+                                    <Column fullWidth className="body-image bot">
+                                        <LayoutAvatarImageView figure={ avatarInfo.figure } direction={ 4 } />
+                                    </Column>
+                                    <Column grow center gap={ 0 }>
+                                        { (avatarInfo.badges.length > 0) && avatarInfo.badges.map(result =>
+                                        {
+                                            return <LayoutBadgeImageView key={ result } badgeCode={ result } showInfo={ true } />;
+                                        }) }
+                                    </Column>
+                                </Flex>
+                            </Column>
+                            <Column gap={1}>
+                                <Flex gap={1} alignItems="center" className="bg-hubGrey1D rounded">
+                                    <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
+                                        <Base className="icon icon-motto" />
+                                    </Flex>
+                                    <Flex grow alignItems="center" className="motto-content">
+                                        <Text fullWidth pointer wrap textBreak small variant="white">{ avatarInfo.motto }</Text>
+                                    </Flex>
+                                </Flex>
+                            </Column>
+                            <Column gap={1}>
+                                <Flex alignItems="center" gap={ 1 }>
+                                    <UserProfileIconView userId={ avatarInfo.ownerId } />
+                                    <Text variant="white" small wrap>
+                                        { LocalizeText('infostand.text.botowner', [ 'name' ], [ avatarInfo.ownerName ]) }
+                                    </Text>
+                                </Flex>
+                                { (avatarInfo.carryItem > 0) &&
+                                    <Flex alignItems='center' overflow='hidden' className='bg-hubGrey1D rounded' gap={1}>
+                                        <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
+                                            <Base className="icon icon-handitem" />
+                                        </Flex>
+                                        <Text fullWidth pointer wrap textBreak small variant="white">
+                                            { LocalizeText('handitem' + avatarInfo.carryItem) }
+                                        </Text>
+                                    </Flex>
+                                }
+                            </Column>
+                        </Column>
+                    </Column>
+                </Flex>
             </Column>
             { canPickup &&
-                <Flex justifyContent="end">
-                    <Button variant="dark" onClick={ pickupBot }>{ LocalizeText('infostand.button.pickup') }</Button>
-                </Flex> }
+            <Flex justifyContent="end">
+                <Button variant="dark" onClick={ pickupBot }>{ LocalizeText('infostand.button.pickup') }</Button>
+            </Flex> }
         </Column>
     );
 }

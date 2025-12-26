@@ -7,8 +7,9 @@
     }
 
     &.icon-heart {
-        width: 16px; height: 14px;
-        background-position: -5px -67px;
+        width: 15px;
+        height: 16px;
+        background-position: -7px -67px;
     }
 
     &.icon-new-message {
@@ -17,8 +18,8 @@
     }
 
     &.icon-none {
-        width: 16px; height: 14px;
-        background-position: -31px -67px;
+        width: 15px; height: 16px;
+        background-position: -33px -67px;
     }
 
     &.icon-profile {
@@ -27,18 +28,19 @@
     }
 
     &.icon-profile-sm {
-        width: 13px; height: 11px;
+        width: 17px;
+        height: 16px;
         background-position: -51px -91px;
 
         &:hover {
-            width: 13px; height: 11px;
-            background-position: -74px -91px;
+            filter: brightness(1.1);
         }
     }
 
-    &.icon-smile {
-        width: 16px; height: 14px;
-        background-position: -57px -67px;
+    &.icon-smile {    
+        width: 15px;
+        height: 16px;
+        background-position: -59px -67px;
     }
 
     &.icon-warning {
@@ -57,8 +59,9 @@
     }
 
     &.icon-bobba {
-        width: 16px; height: 14px;
-        background-position: -96px -5px;
+        width: 15px;
+        height: 16px;
+        background-position: -98px -5px;
     }
 
     &.icon-chat {
@@ -77,6 +80,7 @@
     }
 
     &.icon-friendbar-chat {
+        background: url('@/assets/images/friends/friends-spritesheet.png') transparent no-repeat;
         width: 20px; height: 21px;
         background-position: -36px -36px;
     }
@@ -106,6 +110,20 @@
 .nitro-friends-remove-confirmation {
     width: $friends-list-width;
 }
+
+.btn-dark{
+    color:#fff;
+    background:repeating-linear-gradient(rgb(40,40,40),rgb(40,40,40) 50%,#1b1b1b 50%,#1b1b1b 100%);
+    border-color:#000;
+    box-shadow:inset 0 0 0 1px #494949;
+    border-bottom-width:2px;
+
+    &:hover{
+        color:#fff;
+        filter:brightness(1.2);
+    }
+}
+
 
 .btn-hubGrey1 {
     color: #fff;
@@ -164,6 +182,23 @@
     padding: 2px;
     z-index: 70;
     display: flex;
+
+    .navigation-item {
+        position: relative;
+
+        &:hover {
+            -webkit-transform: translate(-1px, -1px);
+            transform: translate(-1px, -1px);
+            filter: drop-shadow(2px 2px 0 rgba($black, 0.8));
+        }
+
+        &.active,
+        &:active {
+            -webkit-transform: unset;
+            transform: unset;
+            filter: none;
+        }
+    }
 
     * {
         transition: max-width .3s ease, opacity .3s ease, padding .3s ease, transform .3s ease;
