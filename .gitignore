@@ -27,5 +27,5 @@ Thumbs.db
 /build
 *.zip
 .env
-public/renderer-config*
-public/ui-config*
+public/renderer-config.json
+public/ui-config.json
