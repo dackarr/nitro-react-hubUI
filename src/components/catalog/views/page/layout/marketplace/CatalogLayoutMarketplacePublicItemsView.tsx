@@ -135,13 +135,13 @@ export const CatalogLayoutMarketplacePublicItemsView: FC<CatalogLayoutMarketplac
     return (
         <>
             <ButtonGroup>
-                <Button active={ (searchType === MarketplaceSearchType.BY_ACTIVITY) } onClick={ () => setSearchType(MarketplaceSearchType.BY_ACTIVITY) }>
+                <Button variant='muted' active={ (searchType === MarketplaceSearchType.BY_ACTIVITY) } onClick={ () => setSearchType(MarketplaceSearchType.BY_ACTIVITY) }>
                     { LocalizeText('catalog.marketplace.search_by_activity') }
                 </Button>
-                <Button active={ (searchType === MarketplaceSearchType.BY_VALUE) } onClick={ () => setSearchType(MarketplaceSearchType.BY_VALUE) }>
+                <Button variant='muted' active={ (searchType === MarketplaceSearchType.BY_VALUE) } onClick={ () => setSearchType(MarketplaceSearchType.BY_VALUE) }>
                     { LocalizeText('catalog.marketplace.search_by_value') }
                 </Button>
-                <Button active={ (searchType === MarketplaceSearchType.ADVANCED) } onClick={ () => setSearchType(MarketplaceSearchType.ADVANCED) }>
+                <Button variant='muted' active={ (searchType === MarketplaceSearchType.ADVANCED) } onClick={ () => setSearchType(MarketplaceSearchType.ADVANCED) }>
                     { LocalizeText('catalog.marketplace.search_advanced') }
                 </Button>
             </ButtonGroup>
