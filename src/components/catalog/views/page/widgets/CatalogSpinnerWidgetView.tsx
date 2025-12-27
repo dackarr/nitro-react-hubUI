@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { LocalizeText } from '../../../../../api';
-import { Flex, Text } from '../../../../../common';
+import { Base, Flex, Text } from '../../../../../common';
 import { useCatalog } from '../../../../../hooks';
 
 const MIN_VALUE: number = 1;
@@ -35,11 +34,13 @@ export const CatalogSpinnerWidgetView: FC<{}> = props =>
 
     return (
         <>
-            <Text>{ LocalizeText('catalog.bundlewidget.spinner.select.amount') }</Text>
-            <Flex alignItems="center" gap={ 1 }>
-                <FaCaretLeft className="text-black cursor-pointer fa-icon" onClick={ event => updateQuantity(quantity - 1) } />
-                <input type="number" className="form-control form-control-sm quantity-input" value={ quantity } onChange={ event => updateQuantity(event.target.valueAsNumber) } />
-                <FaCaretRight className="text-black cursor-pointer fa-icon" onClick={ event => updateQuantity(quantity + 1) } />
+            <Flex className='quantity-counter px-1' alignItems="center" gap={ 1 }>
+                <Text>{ LocalizeText('shop.amount.text.nocolon') }</Text>
+                <Flex alignItems='center'>
+                    <Base className="text-black cursor-pointer catalog-navigation-arrow left" onClick={ event => updateQuantity(quantity - 1) } />
+                    <input type="number" className="form-control form-control-sm rounded quantity-input text-center" value={ quantity } onChange={ event => updateQuantity(event.target.valueAsNumber) } />
+                    <Base className="text-black cursor-pointer catalog-navigation-arrow right" onClick={ event => updateQuantity(quantity + 1) } />
+                </Flex>
             </Flex>
         </>
     );

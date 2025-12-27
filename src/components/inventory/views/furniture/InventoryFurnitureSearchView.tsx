@@ -1,7 +1,6 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
 import { GroupItem, LocalizeText } from '../../../../api';
-import {Base, Button, Flex} from '../../../../common';
+import { Base, Flex } from '../../../../common';
 
 export interface InventoryFurnitureSearchViewProps
 {
@@ -41,7 +40,7 @@ export const InventoryFurnitureSearchView: FC<InventoryFurnitureSearchViewProps>
             <Flex pointer alignItems="center" justifyContent="center" className="search-button">
                 <Base className="icon icon-search" />
             </Flex>
-            <input type="text" className="form-control form-control-sm" placeholder={ LocalizeText('generic.search') } value={ searchValue } onChange={ event => setSearchValue(event.target.value) } />
+            <input type="text" className="form-control search left form-control-sm" placeholder={ LocalizeText('generic.search') } value={ searchValue } onChange={ event => setSearchValue(event.target.value) } />
         </Flex>
     );
 }

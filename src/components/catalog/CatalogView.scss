@@ -14,12 +14,25 @@
         height: 24px;
     }
 
-    .quantity-input {
-        min-height:17px;
-        height:17px;
-        width:28px;
-        padding:0 4px;
-        text-align:right
+    .quantity-counter {
+        background-color: #c1cbd7;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #8397af;
+        box-shadow: inset 0 0 0 1px #e9edf1;
+        border-radius: 0.08rem;
+        padding: 0.5px;
+
+        .quantity-input {
+            min-height: 17px;
+            height: 17px;
+            width: 20px;
+            padding: 0;
+            text-align: right;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
     }
 
     &.catalog-price {
@@ -57,9 +70,18 @@
     height:9px;
     background-image:url('@/assets/images/catalog/arrow.png');
     padding-right: 13px;
+    transform: rotate(-90deg);
 
     &.open {
         background-position:0 9px;
+    }
+
+    &.right {
+        transform: rotate(-90deg);
+    }
+
+    &.left {
+        transform: rotate(90deg);
     }
 }
 

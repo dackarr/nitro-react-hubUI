@@ -32,6 +32,10 @@
     }
   }
 
+  &.search {
+    &.left {border-left: 0;} &.right {border-right: 0;}
+  }
+
   // Customize the `:focus` state to imitate native WebKit styles.
   &:focus {
     color: $input-focus-color;

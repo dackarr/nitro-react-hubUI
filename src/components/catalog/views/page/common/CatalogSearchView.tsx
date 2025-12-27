@@ -80,16 +80,16 @@ export const CatalogSearchView: FC<{}> = props =>
 
     return (
         <Flex className="layout-search">
-            { (!searchValue || !searchValue.length) &&
-                <Button variant="primary" className="search-button">
-                    <Base className="icon icon-search" />
-                </Button> }
-            { searchValue && !!searchValue.length &&
-                <Button variant="primary" className="catalog-search-button" onClick={ event => setSearchValue('') }>
-                    <FaTimes className="fa-icon" />
-                </Button> }
             <Flex fullHeight fullWidth alignItems="center" position="relative">
-                <input type="text" className="h-100 form-control form-control-sm" placeholder={ LocalizeText('generic.search') } value={ searchValue } onChange={ event => setSearchValue(event.target.value) } />
+                { (!searchValue || !searchValue.length) &&
+                    <Button variant="primary" className="search-button">
+                        <Base className="icon icon-search" />
+                    </Button> }
+                { searchValue && !!searchValue.length &&
+                    <Button variant="primary" className="catalog-search-button" onClick={ event => setSearchValue('') }>
+                        <FaTimes className="fa-icon" />
+                    </Button> }
+                <input type="text" className="h-100 form-control search left form-control-sm" placeholder={ LocalizeText('generic.search') } value={ searchValue } onChange={ event => setSearchValue(event.target.value) } />
             </Flex>
         </Flex>
     );
