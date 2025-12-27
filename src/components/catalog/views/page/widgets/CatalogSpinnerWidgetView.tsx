@@ -38,7 +38,7 @@ export const CatalogSpinnerWidgetView: FC<{}> = props =>
                 <Text>{ LocalizeText('shop.amount.text.nocolon') }</Text>
                 <Flex alignItems='center'>
                     <Base className="text-black cursor-pointer catalog-navigation-arrow left" onClick={ event => updateQuantity(quantity - 1) } />
-                    <input type="number" className="form-control form-control-sm rounded quantity-input text-center" value={ quantity } onChange={ event => updateQuantity(event.target.valueAsNumber) } />
+                    <input type="number" className="form-control form-control-sm quantity-input text-center" value={ quantity } onChange={ event => updateQuantity(event.target.valueAsNumber) } />
                     <Base className="text-black cursor-pointer catalog-navigation-arrow right" onClick={ event => updateQuantity(quantity + 1) } />
                 </Flex>
             </Flex>
