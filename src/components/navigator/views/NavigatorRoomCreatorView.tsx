@@ -1,25 +1,26 @@
 /* eslint-disable no-template-curly-in-string */
-import {CreateFlatMessageComposer, HabboClubLevelEnum, ILinkEventTracker} from '@nitrots/nitro-renderer';
+import { CreateFlatMessageComposer, HabboClubLevelEnum, ILinkEventTracker } from '@nitrots/nitro-renderer';
 import { FC, useEffect, useState } from 'react';
-import {
-    AddEventLinkTracker,
-    GetClubMemberLevel,
-    GetConfiguration,
-    IRoomModel,
-    LocalizeText, RemoveLinkEventTracker,
-    SendMessageComposer,
-    TryVisitRoom
-} from '../../../api';
-import {
-    Button,
-    Column,
-    Flex,
-    Grid,
-    LayoutCurrencyIcon,
-    LayoutGridItem, NitroCardContentView,
-    NitroCardHeaderView, NitroCardView,
-    Text
-} from '../../../common';
+import
+    {
+        AddEventLinkTracker,
+        GetClubMemberLevel,
+        GetConfiguration,
+        IRoomModel,
+        LocalizeText, RemoveLinkEventTracker,
+        SendMessageComposer
+    } from '../../../api';
+import
+    {
+        Button,
+        Column,
+        Flex,
+        Grid,
+        LayoutCurrencyIcon,
+        LayoutGridItem, NitroCardContentView,
+        NitroCardHeaderView, NitroCardView,
+        Text
+    } from '../../../common';
 import { useNavigator } from '../../../hooks';
 
 export const NavigatorRoomCreatorView: FC<{}> = props =>
@@ -116,7 +117,7 @@ export const NavigatorRoomCreatorView: FC<{}> = props =>
     return (
         <>
             { isVisible &&
-                <NitroCardView uniqueKey="room-creator" className="nitro-navigator room-creator">
+                <NitroCardView uniqueKey="room-creator" className="nitro-navigator nitro-room-creator room-creator">
                     <NitroCardHeaderView headerText={ LocalizeText('navigator.create.room') } onCloseClick={ event => setIsVisible(false) }/>
                     <NitroCardContentView>
                         <Column overflow="hidden">

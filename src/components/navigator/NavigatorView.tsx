@@ -1,18 +1,18 @@
 import { ConvertGlobalRoomIdMessageComposer, HabboWebTools, ILinkEventTracker, LegacyExternalInterface, NavigatorInitComposer, NavigatorSearchComposer, RoomSessionEvent } from '@nitrots/nitro-renderer';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
-import {
-    AddEventLinkTracker,
-    CreateLinkEvent,
-    LocalizeText,
-    RemoveLinkEventTracker,
-    SendMessageComposer,
-    TryVisitRoom
-} from '../../api';
+import
+    {
+        AddEventLinkTracker,
+        CreateLinkEvent,
+        LocalizeText,
+        RemoveLinkEventTracker,
+        SendMessageComposer,
+        TryVisitRoom
+    } from '../../api';
 import { Base, Column, NitroCardContentView, NitroCardHeaderView, NitroCardTabsItemView, NitroCardTabsView, NitroCardView } from '../../common';
 import { useNavigator, useRoomSessionManagerEvent } from '../../hooks';
 import { NavigatorDoorStateView } from './views/NavigatorDoorStateView';
-import { NavigatorRoomCreatorView } from './views/NavigatorRoomCreatorView';
 import { NavigatorRoomInfoView } from './views/NavigatorRoomInfoView';
 import { NavigatorRoomLinkView } from './views/NavigatorRoomLinkView';
 import { NavigatorRoomSettingsView } from './views/room-settings/NavigatorRoomSettingsView';
@@ -203,7 +203,7 @@ export const NavigatorView: FC<{}> = props =>
     return (
         <>
             { isVisible &&
-                <NitroCardView uniqueKey="navigator" className="nitro-navigator">
+                <NitroCardView windowPosition="DWP_NAVIGATOR" uniqueKey="navigator" className="nitro-navigator">
                     <NitroCardHeaderView headerText={ LocalizeText('navigator.title') } onCloseClick={ event => setIsVisible(false) } />
                     <NitroCardContentView position="relative">
                         <NitroCardTabsView>

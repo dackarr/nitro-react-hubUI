@@ -4,6 +4,13 @@
     height: $navigator-height;
     min-height: $navigator-height;
 
+    &.nitro-room-creator {
+        height: $room-cretor-height!important;
+        width: $room-cretor-width!important;
+        min-width: $room-cretor-width !important;
+        min-height: $room-cretor-height !important;
+    }
+
     .search-button {
         position: relative;
         right: 1px;

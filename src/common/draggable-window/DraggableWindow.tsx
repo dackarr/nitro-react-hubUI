@@ -192,6 +192,14 @@ export const DraggableWindow: FC<DraggableWindowProps> = props =>
                 element.style.top = 50 + offsetTop + 'px';
                 element.style.left = 50 + offsetLeft + 'px';
                 break;
+            case DraggableWindowPosition.LEFT_CENTER:
+                element.style.top = `calc(50vh - ${ (element.offsetHeight / 1.7) + offsetTop }px)`;
+                element.style.left = 100 + offsetLeft + 'px';
+                break;
+            case DraggableWindowPosition.NAVIGATOR:
+                element.style.top = `calc(50vh - ${ (element.offsetHeight / 1.5) + offsetTop }px)`;
+                element.style.left = 100 + offsetLeft + 'px';
+                break;
         }
 
         setDelta({ x: 0, y: 0 });
