@@ -35,8 +35,8 @@
     display: flex;
 
     .group-badge {
-        width: 78px;
-        height: 78px;
+        width: 84px;
+        height: 84px;
 
         .badge-image {
             background-size: contain;
@@ -49,7 +49,8 @@
 }
 
 .nitro-group-information-standalone {
-    width: 500px;
+    width: 420px;
+    min-width: 420px;
 }
 
 .nitro-group-members {

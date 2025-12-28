@@ -47,8 +47,8 @@ export const LayoutBadgeImageView: FC<LayoutBadgeImageViewProps> = props =>
 
                 if(!(scale % 1)) newStyle.imageRendering = 'pixelated';
 
-                newStyle.width = (imageElement.width * scale);
-                newStyle.height = (imageElement.height * scale);
+                newStyle.width = (imageElement.width * scale + 6);
+                newStyle.height = (imageElement.height * scale + 6);
             }
         }
 
