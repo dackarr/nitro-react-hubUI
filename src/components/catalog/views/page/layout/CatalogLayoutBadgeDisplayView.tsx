@@ -21,7 +21,12 @@ export const CatalogLayoutBadgeDisplayView: FC<CatalogLayoutProps> = props =>
             <Column gap={1} fullWidth fullHeight>
                 { currentOffer &&
                     <Base className="catalog-item-preview" position="relative" overflow="hidden">
-                        <Text variant="white" className="position-absolute p-2" style={ { zIndex: 99 } } truncate>{ currentOffer.localizationName }</Text>
+                        <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>
+                            <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>
+                                <Text fullWidth grow variant="white" truncate>{ currentOffer.localizationName }</Text>
+                                <CatalogLimitedItemWidgetView fullWidth />
+                            </Flex>
+                        </Flex>
                         <CatalogViewProductWidgetView height={ 255 } />
                     </Base> 
                 }
@@ -41,7 +46,6 @@ export const CatalogLayoutBadgeDisplayView: FC<CatalogLayoutProps> = props =>
                 { currentOffer &&
                     <>
                         <Flex column className='mt-auto' gap={ 1 } justifyContent="end">
-                            <CatalogLimitedItemWidgetView fullWidth />
                             <Flex justifyContent="end">
                                 <CatalogTotalPriceWidget alignItems="end" />
                             </Flex>

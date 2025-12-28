@@ -89,7 +89,7 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
     const getStyle = (): CSSProperties =>
     {
         const style: CSSProperties = {
-            backgroundPosition: '60% 40%',
+            backgroundPosition: '50% 50%',
             backgroundRepeat: 'no-repeat'
         };
 

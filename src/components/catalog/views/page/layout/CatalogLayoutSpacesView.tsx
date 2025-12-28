@@ -38,7 +38,10 @@ export const CatalogLayoutSpacesView: FC<CatalogLayoutProps> = props =>
                 <Base className="catalog-item-preview" overflow="hidden" shrink position="relative">
                     { (currentOffer.product.productType !== ProductTypeEnum.BADGE) &&
                         <>                                        
-                            <Text grow variant="white" className="position-absolute p-2" style={ { zIndex: 99 } } truncate>{ currentOffer.localizationName }</Text>
+                            <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>
+                                <Text fullWidth grow variant="white" truncate>{ currentOffer.localizationName }</Text>
+                                <CatalogLimitedItemWidgetView fullWidth />
+                            </Flex>
                             <CatalogViewProductWidgetView height={255} />
                             <CatalogAddOnBadgeWidgetView className="bg-muted rounded bottom-1 end-1" position="absolute" />
                         </> }
@@ -52,7 +55,6 @@ export const CatalogLayoutSpacesView: FC<CatalogLayoutProps> = props =>
             </Column>
             { currentOffer ? ( 
                     <Column className='mt-auto' gap={ 1 }>
-                        <CatalogLimitedItemWidgetView fullWidth />
                         <Flex justifyContent="between">
                             <Flex gap={ 1 }>
                                 <CatalogSpinnerWidgetView />

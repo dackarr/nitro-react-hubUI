@@ -64,7 +64,7 @@ export const LayoutGridItem: FC<LayoutGridItemProps> = props =>
                 <LayoutItemCountView small light count={ itemCount } /> }
             { (itemUniqueNumber > 0) && 
                 <Base>
-                    <Base fit className="unique-bg-override" style={ { backgroundImage: `url(${ itemImage })` } } />
+                    <Base className="unique-bg-override" style={ { backgroundImage: `url(${ itemImage })` } } />
                     <div className="position-absolute bottom-0 unique-item-counter">
                         <LayoutLimitedEditionStyledNumberView value={ itemUniqueNumber } />
                     </div>

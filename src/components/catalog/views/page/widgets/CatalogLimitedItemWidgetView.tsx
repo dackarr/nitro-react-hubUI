@@ -12,7 +12,7 @@ export const CatalogLimitedItemWidgetView: FC<BaseProps<HTMLDivElement>> = props
     
     return (
         <Base { ...rest }>
-            <LayoutLimitedEditionCompletePlateView className="mx-auto" uniqueLimitedItemsLeft={ currentOffer.product.uniqueLimitedItemsLeft } uniqueLimitedSeriesSize={ currentOffer.product.uniqueLimitedItemSeriesSize } />
+            <LayoutLimitedEditionCompletePlateView className="ms-auto" uniqueLimitedItemsLeft={ currentOffer.product.uniqueLimitedItemsLeft } uniqueLimitedSeriesSize={ currentOffer.product.uniqueLimitedItemSeriesSize } />
             { children }
         </Base>
     );
