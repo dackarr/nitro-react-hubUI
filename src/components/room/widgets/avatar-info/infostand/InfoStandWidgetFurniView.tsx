@@ -1,7 +1,7 @@
 import { CrackableDataType, GroupInformationComposer, GroupInformationEvent, NowPlayingEvent, RoomControllerLevel, RoomObjectCategory, RoomObjectOperationType, RoomObjectVariable, RoomWidgetEnumItemExtradataParameter, RoomWidgetFurniInfoUsagePolicyEnum, SetObjectDataMessageComposer, SongInfoReceivedEvent, StringDataType } from '@nitrots/nitro-renderer';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { AvatarInfoFurni, CreateLinkEvent, GetGroupInformation, GetNitroInstance, GetRoomEngine, LocalizeText, SendMessageComposer } from '../../../../../api';
+import { AvatarInfoFurni, CreateLinkEvent, GetGroupInformation, GetNitroInstance, GetRoomEngine, GetUserProfile, LocalizeText, SendMessageComposer } from '../../../../../api';
 import { Base, Button, Column, Flex, LayoutBadgeImageView, LayoutLimitedEditionCompactPlateView, LayoutRarityLevelView, Text, UserProfileIconView } from '../../../../../common';
 import { useMessageEvent, useRoom, useSoundEvent } from '../../../../../hooks';
 
@@ -338,9 +338,9 @@ export const InfoStandWidgetFurniView: FC<InfoStandWidgetFurniViewProps> = props
                             </Flex>
                         </Flex>
                     </Column>
-                    <Flex className="text-black container-fluid content-area" gap={1} overflow="visible">
+                    <Flex className="text-black content-area" gap={1} overflow="visible">
                         <Column className="nitro-infostand rounded" overflow="visible">
-                            <Column overflow="visible" className="container-fluid" gap={1}>
+                            <Column overflow="visible" gap={2}>
                                 <Column gap={ 1 }>
                                     <Flex position="relative" gap={ 1 }>
                                         { avatarInfo.stuffData.isUnique &&
@@ -355,13 +355,17 @@ export const InfoStandWidgetFurniView: FC<InfoStandWidgetFurniViewProps> = props
                                             <img className="d-block mx-auto" src={ avatarInfo.image.src } alt="" /> }
                                     </Flex>
                                 </Column>
-                                <Column gap={ 1 }>
-                                    <Text fullWidth wrap textBreak variant="white" small>{ avatarInfo.description }</Text>
-                                </Column>
-                                <Column gap={ 1 }>
-                                    <Flex alignItems="center" gap={ 1 }>
-                                        <UserProfileIconView userId={ avatarInfo.ownerId } />
-                                        <Text variant="white" small wrap>
+                                { avatarInfo.description &&
+                                    <Column className='bg-hubGrey1D rounded p-1' gap={ 1 }>
+                                        <Text fullWidth wrap textBreak variant="white" small>{ avatarInfo.description }</Text>
+                                    </Column> 
+                                }
+                                <Column gap={ 2 }>
+                                    <Flex alignItems='center' overflow='hidden' className='bg-hubGrey1D rounded' gap={1}>
+                                        <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
+                                            <UserProfileIconView userId={ avatarInfo.ownerId } />
+                                        </Flex>
+                                        <Text onClick={ event => GetUserProfile(avatarInfo.ownerId) } pointer variant="white" small wrap>
                                             { LocalizeText('furni.owner', [ 'name' ], [ avatarInfo.ownerName ]) }
                                         </Text>
                                     </Flex>
