@@ -135,9 +135,9 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                         </Flex>
                     </Flex>
                 </Column>
-                <Flex className="text-black container-fluid content-area" gap={1} overflow="visible">
+                <Flex className="text-black content-area" gap={1} overflow="visible">
                     <Column className="nitro-infostand rounded" overflow="visible">
-                        <Column overflow="visible" className="container-fluid" gap={1}>
+                        <Column overflow="visible" gap={1}>
                             <Column gap={1}>
                                 <Flex gap={1}>
                                     <Column fullWidth className="body-image" onClick={event => GetUserProfile(avatarInfo.webID)}>
@@ -210,7 +210,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                                     <Base className="icon icon-achievements-mini" />
                                 </Flex>
                                 <Text noWrap center variant="white" small>
-                                    {LocalizeText('infostand.text.achievement_score') + ' ' + avatarInfo.achievementScore}
+                                    { avatarInfo.achievementScore }
                                 </Text>
                             </Flex>
                             {GetConfiguration('user.tags.enabled') &&

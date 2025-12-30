@@ -30,10 +30,13 @@
     z-index: $infostand-zindex;
     color: $white;
 
+    .nitro-card-header-text {
+        max-width: 160px;
+    }
+
     .nitro-infostand {
         position:relative;
-        min-width:190px;
-        max-width:190px;
+        max-width: 190px;
         z-index:30;
         pointer-events:auto;
 
@@ -41,6 +44,8 @@
             min-width:23px;
             max-width:23px;
             min-height:23px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
 
             &>* {
                 filter:drop-shadow(0px 2px rgba(0,0,0,.15))

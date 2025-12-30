@@ -332,7 +332,7 @@ export const InfoStandWidgetFurniView: FC<InfoStandWidgetFurniViewProps> = props
                 <Column gap={0} className='nitro-card rounded-1 theme-primary-dark'>
                     <Column center position="relative" className='container-fluid nitro-card-header'>
                         <Flex gap={1} fullWidth>
-                            <span className="nitro-card-header-text cursor-pointer">{ avatarInfo.name }</span>
+                            <span className="nitro-card-header-text text-truncate cursor-pointer">{ avatarInfo.name }</span>
                             <Flex center position="absolute" className="end-2 nitro-card-header-close" onClick={ onClose }>
                                 <FaTimes className="fa-icon w-12 h-12" />
                             </Flex>
