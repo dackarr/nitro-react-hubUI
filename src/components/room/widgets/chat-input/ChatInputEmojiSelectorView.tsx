@@ -83,8 +83,6 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
                 return '😀';
             case 'people-body':
                 return '👋';
-            case 'component':
-                return '🏻';
             case 'animals-nature':
                 return '🐻';
             case 'food-drink':
@@ -116,7 +114,7 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
                             { emojiGroups.map(group =>
                             {
                                 return (
-                                    <Base key={ group.slug } pointer className={ `p-1 rounded ${ (selectedGroup === group.slug) ? 'bg-primary text-white' : 'bg-light' }` } onClick={ () => setSelectedGroup(group.slug) }>
+                                    <Base key={ group.slug } pointer className={ `p-1 rounded ${ (selectedGroup === group.slug) ? 'layout-grid-item layout-inner active' : 'layout-grid-item layout-inner' }` } onClick={ () => setSelectedGroup(group.slug) }>
                                         <Text fontSize={4} bold>{ getGroupIcon(group.slug) }</Text>
                                     </Base>
                                 );
