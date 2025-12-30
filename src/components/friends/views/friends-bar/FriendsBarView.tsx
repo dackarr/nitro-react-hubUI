@@ -17,7 +17,7 @@ export const FriendBarView: FC<{ onlineFriends: MessengerFriend[] }> = props =>
 
     return (
         <Flex innerRef={ elementRef } alignItems="center" className={ `friend-bar ${ isCollapsed ? 'collapsed' : '' }` }>
-            <Base pointer className="navigation-item icon icon-friendall p-4 ms-2" onClick={ event => CreateLinkEvent('friends/toggle') }>
+            <Base pointer className="friend-bar-inner navigation-item icon icon-friendall p-4" onClick={ event => CreateLinkEvent('friends/toggle') }>
                 { (requests.length > 0) &&
                     <LayoutItemCountView count={ requests.length } /> }
             </Base>
