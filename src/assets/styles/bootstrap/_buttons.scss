@@ -85,6 +85,7 @@
     color: #fff;
     background: repeating-linear-gradient(#16688A, #16688A 50%, #125774 50%, #125774 100%);
     border-color: #0a303f;
+    border-bottom-width: 2px;
     box-shadow: inset 0 0 0 1px #1f93c3;
     padding: 3px 8px;
 
@@ -117,6 +118,7 @@
     background: repeating-linear-gradient(#000, #000 50%, black 50%, black 100%);
     border-color: #000;
     box-shadow: inset 0 0 0 1px #212121;
+    border-bottom-width: 2px;
     padding: 3px 8px;
 
     &:hover {
@@ -148,6 +150,7 @@
     background: repeating-linear-gradient(#fff, #fff 50%, #f2f2f2 50%, #f2f2f2 100%);
     border-color: #d4d4d4;
     box-shadow: inset 0 0 0 1px #fff;
+    border-bottom-width: 2px;
     padding: 3px 8px;
 
     &:hover {
@@ -323,6 +326,7 @@
     background: repeating-linear-gradient(#FFCB00, #FFCB00 50%, #e6b700 50%, #e6b700 100%);
     border-color: #a88600;
     box-shadow: inset 0 0 0 1px #ffd942;
+    border-bottom-width: 2px;
 
     &:hover {
       color: #000;

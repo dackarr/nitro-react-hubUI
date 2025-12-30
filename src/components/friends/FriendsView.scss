@@ -112,8 +112,9 @@
 
     .search-input {
         border: 0;
-        background: #dfdfdf;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        background: #cccccc;
+        border-bottom: 1px solid rgb(137 137 137);
+        box-shadow: inset 0 0 0 1px #d3d3d3, 0 0 0 0 rgb(0 0 0 / 25%);
     }
 
     .nitro-card-accordion-set {
@@ -137,6 +138,13 @@
             .nitro-card-accordion-set-header{
                 background:repeating-linear-gradient(#6b6b6b,#6b6b6b 50%,#555555 50%,#555555 100%);
                 color:#fff!important;
+            }
+            .nitro-card-accordion-set-content {
+                background-color: #cccccc;
+
+                & > div:nth-child(even) {
+                    background-color: #cccccc;
+                }
             }
         }
 
