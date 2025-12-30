@@ -42,9 +42,9 @@ export const FriendsSearchView: FC<FriendsSearchViewProps> = props =>
     return (
         <NitroCardAccordionSetView { ...rest }>
             <input type="text" className="search-input form-control form-control-sm w-100 rounded-0" placeholder={ LocalizeText('generic.search') } value={ searchValue } maxLength={ 50 } onChange={ event => setSearchValue(event.target.value) } />
-            <Column>
+            <Column fullHeight>
                 { friendResults &&
-                    <>
+                    <Column>
                         { (friendResults.length === 0) &&
                             <Text bold small className="px-2 py-1">{ LocalizeText('friendlist.search.nofriendsfound') }</Text> }
                         { (friendResults.length > 0) &&
@@ -69,7 +69,7 @@ export const FriendsSearchView: FC<FriendsSearchViewProps> = props =>
                                     }) }
                                 </Column>
                             </Column> }
-                    </> }
+                    </Column> }
                 { otherResults &&
                     <>
                         { (otherResults.length === 0) &&

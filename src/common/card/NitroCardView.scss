@@ -340,6 +340,98 @@ $nitro-card-tabs-height: 30px;
             color: #000;
         }
     }
+
+    &.theme-yellow {
+        border: 1px solid black;
+        border-radius: 0.25rem !important;
+
+        .nitro-card-header-close {
+            cursor: pointer;
+            padding: 2px;
+            height: 18px;
+            width: 18px;
+            line-height: 1;
+            background: #e04937;
+            border-radius: .14rem;
+            box-shadow: 0 0 0 1px #7c130d;
+            border: 1px solid #e04937;
+            background: repeating-linear-gradient(#b82d1d, #b82d1d 50%, #a22819 50%, #a22819 100%);
+            top: 5px;
+            right: 5px;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
+
+            &:active {
+                filter: brightness(.8);;
+            }
+        }
+
+        .nitro-card-header {
+            position: relative;
+            padding: 5px;
+            background: repeating-linear-gradient(#F4AE00, #F4AE00 50%, #FFC900 50%, #FFC900 100%);
+            width: 100%;
+            margin: 0;
+            box-shadow: inset 0 0 0 1px #FFEC9F;
+            border-radius: .2rem .2rem 0 0;
+            border-bottom: 1px solid #212529;
+
+            .nitro-card-header-text {
+                color: #000000;
+                text-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
+                font-size: .825rem;
+            }
+
+            .nitro-card-header-report-camera {
+                cursor: pointer;
+                padding: 0 2px;
+                margin-right: 4px;
+                line-height: 1;
+                font-size: .61875rem;
+                border-radius: .25rem;
+                box-shadow: 0 0 0 1.6px #fff;
+                border: 2px solid #921911;
+                background: repeating-linear-gradient(rgb(245, 80, 65), rgb(245, 80, 65) 50%, rgb(194, 48, 39) 50%, rgb(194, 48, 39) 100%);
+
+                &:hover {
+                    filter: brightness(1.2);
+                }
+
+                &:active {
+                    filter: brightness(.8);
+                }
+            }
+        }
+
+        .bottom-header {
+            position: relative;
+            padding: 5px;
+            background: repeating-linear-gradient(#F4AE00, #F4AE00 50%, #FFC900 50%, #FFC900 100%);
+            width: 100%;
+            margin: 0;
+            box-shadow: inset 0 0 0 1px #FFEC9F;
+            border-radius: 0 0 .2rem .2rem;
+            border-top: 1px solid #212529;
+            height: 2.5em;
+        }
+
+        .nitro-card-tabs .nav-item {
+            padding: .2rem .8rem;
+            color: #000;
+            z-index: 1;
+            margin-bottom: -1px;
+        }
+
+        .content-area {
+            border-radius: 0 0 .2rem .2rem;
+            background-color: #dfdfdf;
+            box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #fff;
+            color: #282828;
+        }
+    }
+
 }
 
 .content-area {

@@ -54,7 +54,8 @@
     }
 
     &.icon-add {
-        width: 16px; height: 15px;
+        width: 16px;
+        height: 16px;
         background-position: -69px -31px;
     }
 
@@ -65,8 +66,8 @@
     }
 
     &.icon-chat {
-        width: 17px; height: 16px;
-        background-position: -69px -5px;
+        width: 19px; height: 17px;
+        background-position: -68px -5px;
     }
 
     &.icon-deny {
@@ -75,14 +76,25 @@
     }
 
     &.icon-follow {
-        width: 16px; height: 14px;
-        background-position: -96px -29px;
+        width: 17px; height: 17px;
+        background-position: -96px -26px;
     }
 
     &.icon-friendbar-chat {
         background: url('@/assets/images/friends/friends-spritesheet.png') transparent no-repeat;
         width: 20px; height: 21px;
         background-position: -36px -36px;
+    }
+}
+
+@keyframes animate-open {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -95,11 +107,111 @@
     width: $friends-list-width;
     height: $friends-list-height;
     min-width: $friends-list-width;
+    max-width: $friends-list-width;
     min-height: $friends-list-height;
 
     .search-input {
         border: 0;
-        border-bottom: 1px solid rgba($black, 0.2);
+        background: #dfdfdf;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .nitro-card-accordion-set {
+            animation: animate-accordion-height 0.3s ease-in-out;
+
+        &.accordion-blue {
+            .nitro-card-accordion-set-header{
+                background:repeating-linear-gradient(#8ADAFF,#8ADAFF 50%,#59BFFF 50%,#59BFFF 100%);
+                border-bottom:1px solid #6FAFCC;
+            }
+        }
+
+        &.accordion-grey {
+            .nitro-card-accordion-set-header{
+                background:repeating-linear-gradient(#d5d5d5,#d5d5d5 50%,#b7b7b7 50%,#b7b7b7 100%);
+                border-bottom:1px solid #626262;
+            }
+        }
+
+        &.accordion-dark-grey {
+            .nitro-card-accordion-set-header{
+                background:repeating-linear-gradient(#6b6b6b,#6b6b6b 50%,#555555 50%,#555555 100%);
+                color:#fff!important;
+            }
+        }
+
+        &.accordion-orange {
+            .nitro-card-accordion-set-header{
+                background:repeating-linear-gradient(#f0973a,#f0973a 50%,#e67e11 50%,#e67e11 100%);
+                border-bottom:1px solid #333333;
+                color:#fff!important;
+            }
+        }
+
+        .nitro-card-accordion-set-content {
+            overflow-y: scroll !important;
+            animation: animate-open .3s ease-in-out;
+
+            & > div:nth-child(even) {
+                background-color: #dfdfdf;
+            }
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 13px;
+
+        &:horizontal {
+            height: 13px;
+        }
+
+        &:not(:horizontal) {
+            width: 13px;
+        }
+    }
+
+    ::-webkit-scrollbar-track {
+        background-image: url("@/assets/images/card/friendlist-track.png");
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-image: url("@/assets/images/card/friendlist-track-thumb1.png"), url("@/assets/images/card/friendlist-track-thumb2.png"), url("@/assets/images/card/friendlist-track-thumb3.png");
+        background-repeat: no-repeat, no-repeat, repeat-y;
+        background-position: 0 0, bottom, 0 7px;
+
+        &:active {
+            background-image: url("@/assets/images/card/friendlist-track-active-thumb1.png"), url("@/assets/images/card/friendlist-track-active-thumb2.png"), url("@/assets/images/card/friendlist-track-active-thumb3.png");
+        }
+    }
+
+
+    ::-webkit-scrollbar-button {
+        &:vertical {
+            &:start {
+                &:decrement {
+                    height: 16px;
+                    display: block;
+                    background-image: url(@/assets/images/card/friendlist_tracker.png);
+
+                    &:active {
+                        background-image: url(@/assets/images/card/friendlist_tracker-active.png);
+                    }
+                }
+            }
+
+            &:end {
+                &:increment {
+                    background-image: url(@/assets/images/card/friendlist_tracker.png);
+                    background-position-y: 16px;
+                    height: 16px;
+                    display: block;
+
+                    &:active {
+                        background-image: url(@/assets/images/card/friendlist_tracker-active.png);
+                    }
+                }
+            }
+        }
     }
 }
 

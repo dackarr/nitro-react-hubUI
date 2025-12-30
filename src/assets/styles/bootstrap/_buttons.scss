@@ -54,6 +54,7 @@
     background: repeating-linear-gradient(#1E7295, #1E7295 50%, #1a6280 50%, #1a6280 100%);
     border-color: #0f3b4d;
     box-shadow: inset 0 0 0 1px #299ccc;
+    border-bottom-width: 2px;
     padding: 3px 8px;
 
     &:hover {
@@ -183,7 +184,6 @@
     border-color: #a6b7c6;
     box-shadow: inset 0 0 0 1px #fff;
     border-bottom-width: 2px;
-    border-radius: $border-radius;
     padding: 3px 8px;
 
     &:hover {
@@ -220,7 +220,6 @@
     border-color: #8c9fb5;
     box-shadow: inset 0 0 0 1px #e9edf1;
     border-bottom-width: 2px;
-    border-radius: $border-radius;
     padding: 3px 8px;
 
     &:hover {
@@ -257,7 +256,6 @@
     border-color: #6d1b11;
     box-shadow: inset 0 0 0 1px #e04937;
     border-bottom-width: 2px;
-    border-radius: $border-radius;
     padding: 3px 8px;
 
     &:hover {
@@ -294,7 +292,6 @@
     border-color: #002904;
     box-shadow: inset 0 0 0 1px #00c211;
     border-bottom-width: 2px;
-    border-radius: $border-radius;
     padding: 3px 8px;
 
     &:hover {
