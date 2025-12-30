@@ -1,7 +1,7 @@
 import { PetRespectComposer, PetType } from '@nitrots/nitro-renderer';
 import { FC, useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { AvatarInfoPet, ConvertSeconds, CreateLinkEvent, GetConfiguration, LocalizeText, SendMessageComposer } from '../../../../../api';
+import { AvatarInfoPet, ConvertSeconds, CreateLinkEvent, GetConfiguration, GetUserProfile, LocalizeText, SendMessageComposer } from '../../../../../api';
 import { Base, Button, Column, Flex, LayoutCounterTimeView, LayoutPetImageView, LayoutRarityLevelView, Text, UserProfileIconView } from '../../../../../common';
 import { useRoom, useSessionInfo } from '../../../../../hooks';
 
@@ -85,13 +85,9 @@ export const InfoStandWidgetPetView: FC<InfoStandWidgetPetViewProps> = props =>
                             </Flex>
                         </Flex>
                     </Column>
-                    <Flex className="text-black container-fluid content-area" gap={1} overflow="visible">
+                    <Flex className="text-black content-area" gap={1} overflow="visible">
                         <Column className="nitro-infostand rounded" overflow="visible">
-                            <Column overflow="visible" className="container-fluid" gap={1}>
-                                <Column gap={1}>
-                                    <Text variant="white" small wrap>{LocalizeText(`pet.breed.${avatarInfo.petType}.${avatarInfo.petBreed}`)}</Text>
-                                    <hr className="m-0" />
-                                </Column>
+                            <Column overflow="visible" gap={1}>
                                 {(avatarInfo.petType === PetType.MONSTERPLANT) &&
                                     <>
                                         <Column center gap={1}>
@@ -121,7 +117,6 @@ export const InfoStandWidgetPetView: FC<InfoStandWidgetPetViewProps> = props =>
                                                 <Text variant="white" small truncate>{LocalizeText('infostand.pet.text.raritylevel', ['level'], [LocalizeText(`infostand.pet.raritylevel.${avatarInfo.rarityLevel}`)])}</Text>
                                                 <LayoutRarityLevelView className="top-2 end-2" level={avatarInfo.rarityLevel} />
                                             </Column>
-                                            <hr className="m-0" />
                                         </Column>
                                         <Column gap={1}>
                                             <Text variant="white" small wrap>{LocalizeText('pet.age', ['age'], [avatarInfo.age.toString()])}</Text>
@@ -148,7 +143,7 @@ export const InfoStandWidgetPetView: FC<InfoStandWidgetPetViewProps> = props =>
                                                     </Column>
                                                     <Column alignItems="center" gap={1}>
                                                         <Text variant="white" small truncate>{LocalizeText('infostand.pet.text.experience')}</Text>
-                                                        <Base fullWidth overflow="hidden" position="relative" className="bg-light-dark rounded">
+                                                        <Base fullWidth overflow="hidden" position="relative" className="bg-hubGrey1D rounded">
                                                             <Flex fit center position="absolute">
                                                                 <Text variant="white" small>{avatarInfo.experience + '/' + avatarInfo.levelExperienceGoal}</Text>
                                                             </Flex>
@@ -166,20 +161,23 @@ export const InfoStandWidgetPetView: FC<InfoStandWidgetPetViewProps> = props =>
                                                     </Column>
                                                 </Column>
                                             </Flex>
-                                            <hr className="m-0" />
                                         </Column>
-                                        <Column gap={1}>
+                                        <Column justifyContent='center' className='px-4' fullWidth gap={1}>
+                                            <Text variant="white" small wrap>{LocalizeText(`pet.breed.${avatarInfo.petType}.${avatarInfo.petBreed}`)}</Text>
+                                        </Column>
+                                        <Flex justifyContent='between' className='px-4' gap={1}>
                                             {(avatarInfo.petType !== PetType.MONSTERPLANT) &&
                                                 <Text variant="white" small wrap>{LocalizeText('infostand.text.petrespect', ['count'], [avatarInfo.respect.toString()])}</Text>}
                                             <Text variant="white" small wrap>{LocalizeText('pet.age', ['age'], [avatarInfo.age.toString()])}</Text>
-                                            <hr className="m-0" />
-                                        </Column>
+                                        </Flex>
                                     </>}
                                 <Column gap={1}>
-                                    <Flex alignItems="center" gap={1}>
-                                        <UserProfileIconView userId={avatarInfo.ownerId} />
-                                        <Text variant="white" small wrap>
-                                            {LocalizeText('infostand.text.petowner', ['name'], [avatarInfo.ownerName])}
+                                    <Flex alignItems='center' overflow='hidden' className='bg-hubGrey1D rounded' gap={1}>
+                                        <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
+                                            <UserProfileIconView userId={ avatarInfo.ownerId } />
+                                        </Flex>
+                                        <Text onClick={ event => GetUserProfile(avatarInfo.ownerId) } pointer variant="white" small wrap>
+                                            { LocalizeText('furni.owner', [ 'name' ], [ avatarInfo.ownerName ]) }
                                         </Text>
                                     </Flex>
                                 </Column>

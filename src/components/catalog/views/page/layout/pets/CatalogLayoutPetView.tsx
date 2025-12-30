@@ -204,7 +204,9 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
                 { currentOffer &&
                     <>
                         <Base className="catalog-item-preview" position="relative" overflow="hidden">
-                            <Text variant="white" className="position-absolute p-2" style={ { zIndex: 99 } } truncate>{ petBreedName }</Text>
+                            <Column fullWidth className="position-absolute p-2 bottom-0" style={ { zIndex: 99 } }>
+                                <Text fullWidth className="catalog-item-title" variant="white" truncate>{ currentOffer.localizationName }</Text>
+                            </Column>
                             <CatalogViewProductWidgetView height={ 255 } />
                             <CatalogAddOnBadgeWidgetView position="absolute" className="bg-muted rounded bottom-1 end-1" />
                             { ((petIndex > -1) && (petIndex <= 7)) &&

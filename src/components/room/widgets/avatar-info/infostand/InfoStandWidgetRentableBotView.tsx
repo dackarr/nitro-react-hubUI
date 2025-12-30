@@ -1,7 +1,7 @@
 import { BotRemoveComposer } from '@nitrots/nitro-renderer';
 import { FC, useMemo } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { AvatarInfoRentableBot, BotSkillsEnum, LocalizeText, SendMessageComposer } from '../../../../../api';
+import { AvatarInfoRentableBot, BotSkillsEnum, GetUserProfile, LocalizeText, SendMessageComposer } from '../../../../../api';
 import { Base, Button, Column, Flex, LayoutAvatarImageView, LayoutBadgeImageView, Text, UserProfileIconView } from '../../../../../common';
 
 interface InfoStandWidgetRentableBotViewProps
@@ -38,9 +38,9 @@ export const InfoStandWidgetRentableBotView: FC<InfoStandWidgetRentableBotViewPr
                         </Flex>
                     </Flex>
                 </Column>
-                <Flex className="text-black container-fluid content-area" gap={1} overflow="visible">
+                <Flex className="text-black content-area" gap={1} overflow="visible">
                     <Column className="nitro-infostand rounded" overflow="visible">
-                        <Column overflow="visible" className="container-fluid" gap={1}>
+                        <Column overflow="visible" gap={1}>
                             <Column gap={1}>
                                 <Flex gap={1}>
                                     <Column fullWidth className="body-image bot">
@@ -65,10 +65,12 @@ export const InfoStandWidgetRentableBotView: FC<InfoStandWidgetRentableBotViewPr
                                 </Flex>
                             </Column>
                             <Column gap={1}>
-                                <Flex alignItems="center" gap={ 1 }>
-                                    <UserProfileIconView userId={ avatarInfo.ownerId } />
-                                    <Text variant="white" small wrap>
-                                        { LocalizeText('infostand.text.botowner', [ 'name' ], [ avatarInfo.ownerName ]) }
+                                <Flex alignItems='center' overflow='hidden' className='bg-hubGrey1D rounded' gap={1}>
+                                    <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
+                                        <UserProfileIconView userId={ avatarInfo.ownerId } />
+                                    </Flex>
+                                    <Text onClick={ event => GetUserProfile(avatarInfo.ownerId) } pointer variant="white" small wrap>
+                                        { LocalizeText('furni.owner', [ 'name' ], [ avatarInfo.ownerName ]) }
                                     </Text>
                                 </Flex>
                                 { (avatarInfo.carryItem > 0) &&

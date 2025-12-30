@@ -77,6 +77,14 @@ export const CatalogPurchaseWidgetView: FC<CatalogPurchaseWidgetViewProps> = pro
             return;
         }
 
+        if(purchaseCallback)
+        {
+            setPurchaseState(CatalogPurchaseState.PURCHASE);
+            purchaseCallback();
+
+            return;
+        }
+
         DispatchUiEvent(new CatalogPurchaseConfirmationEvent(currentOffer, currentOffer.page.pageId, purchaseOptions.extraData, purchaseOptions.quantity));
     }
 
