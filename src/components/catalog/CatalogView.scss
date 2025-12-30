@@ -307,4 +307,34 @@
     }
 }
 
+.catalog-purchase-confirm-view {
+    width: $catalog-confirmation-width;
+    height: $catalog-confirmation-height;
+    min-width: $catalog-confirmation-width;
+    max-width: $catalog-confirmation-width;
+    min-height: $catalog-confirmation-height;
+
+    .image-preview-container {
+        width: 126px;
+        height: 150px;
+        border-radius: $border-radius;
+        justify-content: center;
+        align-items: center;
+        background-color: #c1cbd7;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #8397af;
+        box-shadow: inset 0 0 0 1px #e9edf1;
+
+        .furni-image {
+            max-height: 146px;
+        }
+    }
+
+    .btn {
+        height: 27px;
+        width: 110px;
+    }
+}
+
 @import './views/targeted-offer/Offer.scss';

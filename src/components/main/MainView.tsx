@@ -8,6 +8,7 @@ import { AvatarEditorView } from '../avatar-editor/AvatarEditorView';
 import { CameraWidgetView } from '../camera/CameraWidgetView';
 import { CampaignView } from '../campaign/CampaignView';
 import { CatalogView } from '../catalog/CatalogView';
+import { CatalogPurchaseConfirmView } from "../catalog/views/CatalogPurchaseConfirmView";
 import { ChatHistoryView } from '../chat-history/ChatHistoryView';
 import { FloorplanEditorView } from '../floorplan-editor/FloorplanEditorView';
 import { FriendsView } from '../friends/FriendsView';
@@ -20,6 +21,7 @@ import { HotelView } from '../hotel-view/HotelView';
 import { InventoryView } from '../inventory/InventoryView';
 import { ModToolsView } from '../mod-tools/ModToolsView';
 import { NavigatorView } from '../navigator/NavigatorView';
+import { NavigatorRoomCreatorView } from "../navigator/views/NavigatorRoomCreatorView";
 import { NitropediaView } from '../nitropedia/NitropediaView';
 import { RightSideView } from '../right-side/RightSideView';
 import { RoomView } from '../room/RoomView';
@@ -27,7 +29,6 @@ import { ToolbarView } from '../toolbar/ToolbarView';
 import { UserProfileView } from '../user-profile/UserProfileView';
 import { UserSettingsView } from '../user-settings/UserSettingsView';
 import { WiredView } from '../wired/WiredView';
-import {NavigatorRoomCreatorView} from "../navigator/views/NavigatorRoomCreatorView";
 
 export const MainView: FC<{}> = props =>
 {
@@ -95,6 +96,7 @@ export const MainView: FC<{}> = props =>
             <NavigatorView />
             <InventoryView />
             <CatalogView />
+            <CatalogPurchaseConfirmView />
             <FriendsView />
             <RightSideView />
             <UserSettingsView />
