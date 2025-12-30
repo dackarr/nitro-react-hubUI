@@ -272,6 +272,8 @@
     &.bg-danger {
         background: repeating-linear-gradient(#b82d1d, #b82d1d 50%, #8c2216 50%, #8c2216 100%);
         box-shadow: inset 0 0 0 1px #e15140;
+        top: -3px;
+        right: -3px;
     }
 
     &.bg-light {
