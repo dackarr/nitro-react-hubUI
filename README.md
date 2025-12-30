@@ -1,5 +1,18 @@
 # Nitro React v2.1
 
+## Contribution
+
+Feel free to help out and contribute to make this UI replicate flash as much as possible, would be fun if the community could help out to make this UI great!
+
+Thanks to everyone that has helped out contributing to this UI:
+- Dackar
+- Keyberton
+- Robbis
+- Live
+- Laynester
+- Dennis
+- Object
+
 ## Prerequisites
 
 -   [Git](https://git-scm.com/)
