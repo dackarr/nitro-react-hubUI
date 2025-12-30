@@ -100,7 +100,7 @@ export const GroupInformationView: FC<GroupInformationViewProps> = props =>
     if(!groupInformation) return null;
 
     return (
-        <Grid overflow={ overflow } { ...rest }>
+        <Grid className='nitro-catalog-items-grid' overflow={ overflow } { ...rest }>
             <Column center size={ 3 } overflow="hidden">
                 <Flex alignItems="center" overflow="hidden" className="group-badge">
                     <LayoutBadgeImageView badgeCode={ groupInformation.badge } isGroup={ true } scale={ 2 } />

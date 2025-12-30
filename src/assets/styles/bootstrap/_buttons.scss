@@ -323,9 +323,9 @@
 
   &.btn-warning {
     color: #000;
-    background: repeating-linear-gradient(#FFCB00, #FFCB00 50%, #e6b700 50%, #e6b700 100%);
+    background: repeating-linear-gradient(#FFCB00,#FFCB00 50%,#FFAA00 50%,#FFAA00 100%);
+    box-shadow: inset 0 0 0 1px #ffe580;
     border-color: #a88600;
-    box-shadow: inset 0 0 0 1px #ffd942;
     border-bottom-width: 2px;
 
     &:hover {

@@ -9,6 +9,12 @@
     background-repeat: no-repeat;
     background-position: center;
 
+    &.icon-room-link {
+        background: url('@/assets/images/icons/room-link.png');
+        width:17px;
+        height:15px;
+    }
+
     &.icon-color-picker {
         background: url('@/assets/images/icons/color-picker.png');
         width:18px;
@@ -391,8 +397,8 @@
 
     &.icon-camera-small {
         background: url('@/assets/images/icons/camera-small.png');
-        width: 17px;
-        height: 15px;
+        width: 15px;
+        height: 13px;
     }
 
     &.icon-small-room {
