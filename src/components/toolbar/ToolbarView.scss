@@ -93,6 +93,11 @@
     border: 1px solid #101010;
     box-shadow: inset 2px 2px rgba(255, 255, 255, .1), inset -2px -2px rgba(255, 255, 255, .1);
     border-radius: $border-radius;
+    transition:max-width .3s ease,opacity .3s ease,padding .3s ease,bottom .3s ease;
+
+    * {
+        transition:max-width .3s ease,opacity .3s ease,padding .3s ease,bottom .3s ease
+    }
 
     .navigation-item {
         transition: filter .2s ease-out;
