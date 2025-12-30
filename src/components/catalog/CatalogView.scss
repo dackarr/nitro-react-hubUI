@@ -86,12 +86,15 @@
 
 .catalog-navigation {
     width:175px;
-    flex-shrink:0;
+    padding-bottom: 0px;
 
     &.nitro-catalog-navigation-grid-container {
-        border-color: #b6bec5 !important;
-        background-color: #cdd3d9;
-        border: 2px solid;
+        background-color: #c1cbd7;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #8397af;
+        box-shadow: inset 0 0 0 1px #e9edf1;
+        border-bottom-width: 2px;
         
         .nitro-catalog-main-navigation {
             gap: 4px!important;

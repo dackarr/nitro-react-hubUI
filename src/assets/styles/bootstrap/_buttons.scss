@@ -54,6 +54,7 @@
     background: repeating-linear-gradient(#1E7295, #1E7295 50%, #1a6280 50%, #1a6280 100%);
     border-color: #0f3b4d;
     box-shadow: inset 0 0 0 1px #299ccc;
+    padding: 3px 8px;
 
     &:hover {
       color: #fff;
@@ -84,6 +85,7 @@
     background: repeating-linear-gradient(#16688A, #16688A 50%, #125774 50%, #125774 100%);
     border-color: #0a303f;
     box-shadow: inset 0 0 0 1px #1f93c3;
+    padding: 3px 8px;
 
     &:hover {
       color: #fff;
@@ -114,6 +116,7 @@
     background: repeating-linear-gradient(#000, #000 50%, black 50%, black 100%);
     border-color: #000;
     box-shadow: inset 0 0 0 1px #212121;
+    padding: 3px 8px;
 
     &:hover {
       color: #fff;
@@ -144,6 +147,7 @@
     background: repeating-linear-gradient(#fff, #fff 50%, #f2f2f2 50%, #f2f2f2 100%);
     border-color: #d4d4d4;
     box-shadow: inset 0 0 0 1px #fff;
+    padding: 3px 8px;
 
     &:hover {
       color: #000;
@@ -170,10 +174,17 @@
   }
 
   &.btn-silver {
-    color: #000;
+    color: black;
     background: repeating-linear-gradient(#DBE2E8, #DBE2E8 50%, #cbd5de 50%, #cbd5de 100%);
+    background-repeat: no-repeat;
+    background-color: #c1cbd7;
+    border-width: 1px;
+    border-style: solid;
     border-color: #a6b7c6;
     box-shadow: inset 0 0 0 1px #fff;
+    border-bottom-width: 2px;
+    border-radius: $border-radius;
+    padding: 3px 8px;
 
     &:hover {
       color: #000;
@@ -200,10 +211,17 @@
   }
 
   &.btn-muted {
-    color: #000;
+    color: black;
     background: repeating-linear-gradient(#c1cbd7, #c1cbd7 50%, #b2becd 50%, #b2becd 100%);
+    background-repeat: no-repeat;
+    background-color: #c1cbd7;
+    border-width: 1px;
+    border-style: solid;
     border-color: #8c9fb5;
     box-shadow: inset 0 0 0 1px #e9edf1;
+    border-bottom-width: 2px;
+    border-radius: $border-radius;
+    padding: 3px 8px;
 
     &:hover {
       color: #000;
@@ -230,10 +248,17 @@
   }
 
   &.btn-danger {
-    color: #ffff;
+    color: white;
     background: repeating-linear-gradient(#b82d1d, #b82d1d 50%, #a22819 50%, #a22819 100%);
+    background-repeat: no-repeat;
+    background-color: #c1cbd7;
+    border-width: 1px;
+    border-style: solid;
     border-color: #6d1b11;
     box-shadow: inset 0 0 0 1px #e04937;
+    border-bottom-width: 2px;
+    border-radius: $border-radius;
+    padding: 3px 8px;
 
     &:hover {
       color: #fff;
@@ -260,10 +285,17 @@
   }
 
   &.btn-success {
-    color: #ffff;
+    color: white;
     background: repeating-linear-gradient(#00800b, #00800b 50%, #006709 50%, #006709 100%);
+    background-repeat: no-repeat;
+    background-color: #00800b;
+    border-width: 1px;
+    border-style: solid;
     border-color: #002904;
     box-shadow: inset 0 0 0 1px #00c211;
+    border-bottom-width: 2px;
+    border-radius: $border-radius;
+    padding: 3px 8px;
 
     &:hover {
       color: #fff;

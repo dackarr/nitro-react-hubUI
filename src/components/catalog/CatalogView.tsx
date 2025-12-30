@@ -78,13 +78,13 @@ export const CatalogView: FC<{}> = props =>
                                 if(!child.isVisible) return null;
 
                                 return (
-                                    <NitroCardTabsItemView key={ child.pageId } isActive={ child.isActive } onClick={ event =>
+                                    <NitroCardTabsItemView fit key={ child.pageId } isActive={ child.isActive } onClick={ event =>
                                     {
                                         if(searchResult) setSearchResult(null);
 
                                         activateNode(child);
                                     } } >
-                                        <Flex gap={ GetConfiguration('catalog.tab.icons') ? 1 : 0 } alignItems="center">
+                                        <Flex className="px-auto" gap={ GetConfiguration('catalog.tab.icons') ? 1 : 0 } alignItems="center">
                                             { GetConfiguration('catalog.tab.icons') && <CatalogIconView icon={ child.iconId } /> }
                                             { child.localization }
                                         </Flex>
