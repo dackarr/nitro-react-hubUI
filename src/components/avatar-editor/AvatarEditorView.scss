@@ -263,6 +263,10 @@
     min-width: $avatar-editor-width;
     min-height: $avatar-editor-height;
 
+    .nitro-card-tabs {
+        padding-left: 155px;
+    }
+
     .category-item {
         height: 40px;
     }
@@ -335,4 +339,9 @@
             transform: scale(2);
         }
     }
+}
+
+.color-picker {
+    max-height: 130px;
+    min-height: 130px;
 }

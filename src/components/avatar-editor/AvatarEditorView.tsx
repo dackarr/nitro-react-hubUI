@@ -284,12 +284,6 @@ export const AvatarEditorView: FC<{}> = props =>
                     </NitroCardTabsItemView>
                 </NitroCardTabsView>
                 <Grid overflow="hidden">
-                    <Column size={ 9 } overflow="hidden">
-                        { (activeCategory && !isWardrobeVisible) &&
-                            <AvatarEditorModelView model={ activeCategory } gender={ figureData.gender } setGender={ setGender } /> }
-                        { isWardrobeVisible &&
-                            <AvatarEditorWardrobeView figureData={ figureData } savedFigures={ savedFigures } setSavedFigures={ setSavedFigures } loadAvatarInEditor={ loadAvatarInEditor } /> }
-                    </Column>
                     <Column size={ 3 } overflow="hidden">
                         <AvatarEditorFigurePreviewView figureData={ figureData } />
                         <Column grow gap={ 1 }>
@@ -308,6 +302,12 @@ export const AvatarEditorView: FC<{}> = props =>
                                 { LocalizeText('avatareditor.save') }
                             </Button>
                         </Column>
+                    </Column>
+                    <Column size={ 9 } overflow="hidden">
+                        { (activeCategory && !isWardrobeVisible) &&
+                            <AvatarEditorModelView model={ activeCategory } gender={ figureData.gender } setGender={ setGender } /> }
+                        { isWardrobeVisible &&
+                            <AvatarEditorWardrobeView figureData={ figureData } savedFigures={ savedFigures } setSavedFigures={ setSavedFigures } loadAvatarInEditor={ loadAvatarInEditor } /> }
                     </Column>
                 </Grid>
             </NitroCardContentView>
