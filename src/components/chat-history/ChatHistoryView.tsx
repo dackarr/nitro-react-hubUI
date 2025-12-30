@@ -60,7 +60,7 @@ export const ChatHistoryView: FC<{}> = props =>
     return (
         <NitroCardView uniqueKey="chat-history" className="nitro-chat-history" theme="primary-slim">
             <NitroCardHeaderView headerText={ LocalizeText('room.chathistory.button.text') } onCloseClick={ event => setIsVisible(false) }/>
-            <NitroCardContentView innerRef={ elementRef } overflow="hidden" gap={ 2 }>
+            <NitroCardContentView innerRef={ elementRef } overflow="hidden" gap={ 1 }>
                 <Flex className="layout-search">
                     <Flex pointer alignItems="center" justifyContent="center" className="search-button">
                         <Base className="icon icon-search" />
