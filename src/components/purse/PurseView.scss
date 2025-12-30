@@ -33,10 +33,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: inset 0 1px #ffffff26, inset 0 -1px #ffffff26, inset -1px 0 #ffffff26, inset 1px 0 #ffffff26;
+            box-shadow: inset 0 -14px #00000038, inset 0 1px #ffffff50, inset 0 -1px #ffffff50, inset -1px 0 #ffffff50, inset 1px 0 #ffffff50;
             border-left: 1px solid black;
             padding: 0;
             margin-left: 7px;
+
+            &.currency {
+                box-shadow: inset 0 -14px #00000038, inset 0 2px #ffffff50, inset 0 -2px #ffffff50, inset -2px 0 #ffffff50, inset 1px 0 #ffffff50;
+            }
         }
     }
 
