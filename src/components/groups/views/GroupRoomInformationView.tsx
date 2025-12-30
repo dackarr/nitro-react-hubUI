@@ -105,27 +105,26 @@ export const GroupRoomInformationView: FC<{}> = props =>
     if(!groupInformation) return null;
 
     return (
-        <Base className="nitro-notification-bubble p-0 position-relative rounded">
+        <Base className="nitro-notification-bubble groups-information p-0 position-relative rounded">
             <Flex className="group-header" alignItems="center" justifyContent="between" pointer onClick={ event => setIsOpen(value => !value) }>
                 <Text center variant="white">{ LocalizeText('group.homeroominfo.title') }</Text>
                 { isOpen && <FaChevronUp className="fa-icon" /> }
                 { !isOpen && <FaChevronDown className="fa-icon" /> }
             </Flex>
-            <Column>
-                { isOpen &&
-                    <Column className='p-1'>
-                        <Flex pointer alignItems="center" gap={ 2 } onClick={ event => GetGroupInformation(groupInformation.id) }>
-                            <Base className="group-badge">
-                                <LayoutBadgeImageView badgeCode={ groupInformation.badge } isGroup={ true } />
-                            </Base>
-                            <Text variant="white">{ groupInformation.title }</Text>
-                        </Flex>
-                        { (groupInformation.type !== GroupType.PRIVATE || isRealOwner) && 
-                            <Button fullWidth variant="success" disabled={ (groupInformation.membershipType === GroupMembershipType.REQUEST_PENDING) } onClick={ handleButtonClick }>
-                                { LocalizeText(getButtonText()) }
-                            </Button>
-                        }
-                    </Column> }
+            <Column className={ `group-info-content ${ isOpen ? 'open' : '' }` }>
+                <Column className='p-1'>
+                    <Flex pointer alignItems="center" gap={ 2 } onClick={ event => GetGroupInformation(groupInformation.id) }>
+                        <Base className="group-badge">
+                            <LayoutBadgeImageView badgeCode={ groupInformation.badge } isGroup={ true } />
+                        </Base>
+                        <Text variant="white">{ groupInformation.title }</Text>
+                    </Flex>
+                    { (groupInformation.type !== GroupType.PRIVATE || isRealOwner) && 
+                        <Button fullWidth variant="success" disabled={ (groupInformation.membershipType === GroupMembershipType.REQUEST_PENDING) } onClick={ handleButtonClick }>
+                            { LocalizeText(getButtonText()) }
+                        </Button>
+                    }
+                </Column> 
             </Column>
         </Base>
     );
