@@ -67,6 +67,8 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
 
     return (
         <>
+            { isMod &&
+                <Base pointer position='absolute' className="m-2 icon icon-modtools" onClick={ event => CreateLinkEvent('mod-tools/toggle') } /> }
             <TransitionAnimation type={ TransitionAnimationTypes.FADE_IN } inProp={ isMeExpanded } timeout={ 300 }>
                 <ToolbarMeView useGuideTool={ useGuideTool } unseenAchievementCount={ getTotalUnseen } setMeExpanded={ setMeExpanded } />
             </TransitionAnimation>
@@ -94,8 +96,6 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
                     </Flex>
                     { isInRoom &&
                         <Base pointer className="navigation-item icon icon-camera" onClick={ event => CreateLinkEvent('camera/toggle') } /> }
-                    { isMod &&
-                        <Base pointer className="navigation-item icon icon-modtools" onClick={ event => CreateLinkEvent('mod-tools/toggle') } /> }
                     { ((iconState === MessengerIconState.SHOW) || (iconState === MessengerIconState.UNREAD)) &&
                         <Base pointer className={ `navigation-item icon icon-message ${ (iconState === MessengerIconState.UNREAD) && 'is-unseen' }` } onClick={ event => OpenMessengerChat() } /> }
                 </Flex>

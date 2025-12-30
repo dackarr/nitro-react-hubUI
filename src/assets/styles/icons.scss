@@ -120,6 +120,11 @@
         background-image: url('@/assets/images/toolbar/icons/modtools.png');
         height: 31px;
         width: 31px;
+
+        &:hover {
+            transform: translate(-1px, -1px);
+            filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.8));
+        }
     }
 
     &.icon-friendall {
