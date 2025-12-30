@@ -105,15 +105,15 @@ export const GroupRoomInformationView: FC<{}> = props =>
     if(!groupInformation) return null;
 
     return (
-        <Base className="nitro-notification-bubble rounded">
+        <Base className="nitro-notification-bubble p-0 position-relative rounded">
+            <Flex className="group-header" alignItems="center" justifyContent="between" pointer onClick={ event => setIsOpen(value => !value) }>
+                <Text center variant="white">{ LocalizeText('group.homeroominfo.title') }</Text>
+                { isOpen && <FaChevronUp className="fa-icon" /> }
+                { !isOpen && <FaChevronDown className="fa-icon" /> }
+            </Flex>
             <Column>
-                <Flex alignItems="center" justifyContent="between" pointer onClick={ event => setIsOpen(value => !value) }>
-                    <Text variant="white">{ LocalizeText('group.homeroominfo.title') }</Text>
-                    { isOpen && <FaChevronUp className="fa-icon" /> }
-                    { !isOpen && <FaChevronDown className="fa-icon" /> }
-                </Flex>
                 { isOpen &&
-                    <>
+                    <Column className='p-1'>
                         <Flex pointer alignItems="center" gap={ 2 } onClick={ event => GetGroupInformation(groupInformation.id) }>
                             <Base className="group-badge">
                                 <LayoutBadgeImageView badgeCode={ groupInformation.badge } isGroup={ true } />
@@ -125,7 +125,7 @@ export const GroupRoomInformationView: FC<{}> = props =>
                                 { LocalizeText(getButtonText()) }
                             </Button>
                         }
-                    </> }
+                    </Column> }
             </Column>
         </Base>
     );
