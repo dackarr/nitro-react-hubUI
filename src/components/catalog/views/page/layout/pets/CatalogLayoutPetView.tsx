@@ -233,10 +233,12 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
                         <Flex column gap={1} className="mt-auto purchase-container">
                             <Column gap={ 1 }>
                                 <Column gap={ 1 }>
-                                    <Text small>{ LocalizeText('widgets.petpackage.name.title') }</Text>
+                                    <Flex fullWidth>
+                                        <Text fullWidth small>{ LocalizeText('widgets.petpackage.name.title') }</Text>
+                                        { (approvalResult > 0) &&
+                                            <Base fullWidth className="invalid-feedback d-block m-0">{ validationErrorMessage }</Base> }
+                                    </Flex>
                                     <input type="text" className="form-control form-control-sm w-100" placeholder="" value={ petName } onChange={ event => setPetName(event.target.value) } />
-                                    { (approvalResult > 0) &&
-                                        <Base className="invalid-feedback d-block m-0">{ validationErrorMessage }</Base> }
                                 </Column>
                             </Column>
                             <Flex justifyContent="end">
