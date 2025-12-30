@@ -1,7 +1,7 @@
 import { RelationshipStatusEnum, RelationshipStatusInfo } from '@nitrots/nitro-renderer';
 import { FC } from 'react';
 import { GetUserProfile, LocalizeText } from '../../../../../api';
-import { Flex, Text } from '../../../../../common';
+import { Base, Flex, Text } from '../../../../../common';
 
 interface InfoStandWidgetUserRelationshipsRelationshipItemViewProps
 {
@@ -18,14 +18,14 @@ export const InfoStandWidgetUserRelationshipsRelationshipItemView: FC<InfoStandW
     const relationshipName = RelationshipStatusEnum.RELATIONSHIP_NAMES[type].toLocaleLowerCase();
 
     return (
-        <Flex alignItems="center" gap={ 1 }>
-            <i className={ `nitro-friends-spritesheet icon-${ relationshipName }` } />
-            <Flex alignItems="center" gap={ 0 }>
-                <Text small variant="white" onClick={ event => GetUserProfile(relationship.randomFriendId) }>
-                    <u>{ relationship.randomFriendName }</u>
-                    { (relationship.friendCount > 1) && (' ' + LocalizeText(`extendedprofile.relstatus.others.${ relationshipName }`, [ 'count' ], [ (relationship.friendCount - 1).toString() ])) }
-                </Text>
+        <Flex alignItems='center' overflow='hidden' className='bg-hubGrey1D rounded' gap={1}>
+            <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
+                <Base className={ `nitro-friends-spritesheet icon-${ relationshipName }` } />
             </Flex>
+            <Text small variant="white" onClick={ event => GetUserProfile(relationship.randomFriendId) }>
+                <u>{ relationship.randomFriendName }</u>
+                { (relationship.friendCount > 1) && (' ' + LocalizeText(`extendedprofile.relstatus.others.${ relationshipName }`, [ 'count' ], [ (relationship.friendCount - 1).toString() ])) }
+            </Text>
         </Flex>
     );
 }

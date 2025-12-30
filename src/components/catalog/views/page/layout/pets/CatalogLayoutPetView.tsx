@@ -1,6 +1,5 @@
 import { ApproveNameMessageComposer, ApproveNameMessageEvent, ColorConverter, GetSellablePetPalettesComposer, PurchaseFromCatalogComposer, SellablePetPaletteData } from '@nitrots/nitro-renderer';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { FaFillDrip } from 'react-icons/fa';
 import { DispatchUiEvent, GetPetAvailableColors, GetPetIndexFromLocalization, LocalizeText, SendMessageComposer } from '../../../../../../api';
 import { AutoGrid, Base, Button, Column, Flex, LayoutGridItem, LayoutPetImageView, Text } from '../../../../../../common';
 import { CatalogPurchaseFailureEvent } from '../../../../../../events';
@@ -205,14 +204,16 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
                     <>
                         <Base className="catalog-item-preview" position="relative" overflow="hidden">
                             <Column fullWidth className="position-absolute p-2 bottom-0" style={ { zIndex: 99 } }>
-                                <Text fullWidth className="catalog-item-title" variant="white" truncate>{ currentOffer.localizationName }</Text>
+                                <Flex justifyContent='between' fullWidth className="catalog-item-title">
+                                    <Text variant='white' truncate>{ currentOffer.localizationName }</Text>
+                                    <CatalogAddOnBadgeWidgetView position="absolute" className="bg-muted rounded bottom-1 end-1" />
+                                    { ((petIndex > -1) && (petIndex <= 7)) &&
+                                        <Button onClick={ event => setColorsShowing(!colorsShowing) }>
+                                            <Base className="icon icon-color-picker" />
+                                        </Button> }
+                                    </Flex>
                             </Column>
                             <CatalogViewProductWidgetView height={ 255 } />
-                            <CatalogAddOnBadgeWidgetView position="absolute" className="bg-muted rounded bottom-1 end-1" />
-                            { ((petIndex > -1) && (petIndex <= 7)) &&
-                                <Button position="absolute" className="bottom-1 start-1" onClick={ event => setColorsShowing(!colorsShowing) }>
-                                    <FaFillDrip className="fa-icon" />
-                                </Button> }
                         </Base>
                     </> }
                     <Column className="nitro-catalog-items-grid" size={ 7 } overflow="hidden">
@@ -229,9 +230,9 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
                         </AutoGrid>
                     </Column>
                     { currentOffer &&
-                        <Flex column gap={1} className="mt-auto">
-                            <Column grow gap={ 1 }>
-                                <Column grow gap={ 1 }>
+                        <Flex column gap={1} className="mt-auto purchase-container">
+                            <Column gap={ 1 }>
+                                <Column gap={ 1 }>
                                     <Text small>{ LocalizeText('widgets.petpackage.name.title') }</Text>
                                     <input type="text" className="form-control form-control-sm w-100" placeholder="" value={ petName } onChange={ event => setPetName(event.target.value) } />
                                     { (approvalResult > 0) &&

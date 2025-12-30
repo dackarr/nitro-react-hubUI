@@ -9,6 +9,12 @@
     background-repeat: no-repeat;
     background-position: center;
 
+    &.icon-color-picker {
+        background: url('@/assets/images/icons/color-picker.png');
+        width:18px;
+        height:12px;
+    }
+
     &.icon-emojis {
         background: url('@/assets/images/icons/emoji_list.png');
         width:18px;

@@ -192,9 +192,6 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                                         </Flex>}
                                 </Flex>
                             </Column>
-                            <Column gap={1}>
-                                <InfoStandWidgetUserRelationshipsView relationships={relationships} />
-                            </Column>
                             {(avatarInfo.carryItem > 0) &&
                                 <Flex alignItems='center' overflow='hidden' className='bg-hubGrey1D rounded' gap={1}>
                                     <Flex alignItems='center' justifyContent='center' gap={1} overflow="hidden" className='bg-hubGrey1L infostand-icon-left'>
@@ -213,6 +210,9 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                                     { avatarInfo.achievementScore }
                                 </Text>
                             </Flex>
+                            <Column gap={1}>
+                                <InfoStandWidgetUserRelationshipsView relationships={relationships} />
+                            </Column>
                             {GetConfiguration('user.tags.enabled') &&
                                 <Column gap={1} className="mt-1">
                                     <InfoStandWidgetUserTagsView tags={GetSessionDataManager().tags} />
