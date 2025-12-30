@@ -122,7 +122,7 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
                                 );
                             }) }
                         </Flex>
-                        <Grid columnCount={ 7 } overflow="auto" className="pt-1">
+                        <Grid columnCount={ 5 } overflow="auto" className="pt-1">
                             { currentEmojis.map((emoji, index) =>
                             {
                                 return (
