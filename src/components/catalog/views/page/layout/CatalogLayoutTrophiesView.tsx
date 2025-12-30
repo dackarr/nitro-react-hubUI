@@ -47,10 +47,10 @@ export const CatalogLayoutTrophiesView: FC<CatalogLayoutProps> = props =>
                 <Base className="catalog-item-preview" overflow="hidden" shrink position="relative">
                     { (currentOffer.product.productType !== ProductTypeEnum.BADGE) &&
                         <>                                        
-                            <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>
-                                <Text fullWidth grow variant="white" truncate>{ currentOffer.localizationName }</Text>
+                            <Column fullWidth className="position-absolute p-2 bottom-0" style={ { zIndex: 99 } }>
                                 <CatalogLimitedItemWidgetView fullWidth />
-                            </Flex>
+                                <Text fullWidth className="catalog-item-title" variant="white" truncate>{ currentOffer.localizationName }</Text>
+                            </Column>
                             <CatalogViewProductWidgetView height={255} />
                             <CatalogAddOnBadgeWidgetView className="bg-muted rounded bottom-1 end-1" position="absolute" />
                         </> }

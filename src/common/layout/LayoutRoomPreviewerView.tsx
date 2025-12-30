@@ -1,18 +1,19 @@
 import { ColorConverter, GetTicker, IRoomRenderingCanvas, RoomPreviewer, TextureUtils } from '@nitrots/nitro-renderer';
-import { CSSProperties, FC, MouseEvent, ReactNode, useEffect, useRef } from 'react';
+import { FC, MouseEvent, ReactNode, useEffect, useRef, useState } from 'react';
 
 export interface LayoutRoomPreviewerViewProps
 {
     roomPreviewer: RoomPreviewer;
-    height?: number | string; // Permitimos string para que puedas usar porcentajes como '50%'
     fullHeight?: boolean;
+    height?: number;
     children?: ReactNode;
 }
 
 export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =>
 {
-    const { roomPreviewer = null, height = 0, fullHeight = false, children = null } = props;
-    const elementRef = useRef<HTMLDivElement>(null);
+    const { roomPreviewer = null, fullHeight = false, height = 0, children = null } = props;
+    const [ renderingCanvas, setRenderingCanvas ] = useState<IRoomRenderingCanvas>(null);
+    const elementRef = useRef<HTMLDivElement>();
 
     const onClick = (event: MouseEvent<HTMLDivElement>) =>
     {
@@ -20,89 +21,79 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
 
         if(event.shiftKey) roomPreviewer.changeRoomObjectDirection();
         else roomPreviewer.changeRoomObjectState();
-    };
+    }
 
     useEffect(() =>
     {
-        if (!roomPreviewer || !elementRef.current) return;
-
-        const element = elementRef.current;
-        let renderingCanvas: IRoomRenderingCanvas = null;
+        if(!roomPreviewer) return;
 
         const update = (time: number) =>
         {
-            if (!roomPreviewer || !renderingCanvas) return;
-
+            if(!roomPreviewer || !renderingCanvas || !elementRef.current) return;
+        
             roomPreviewer.updatePreviewRoomView();
 
-            if (!renderingCanvas.canvasUpdated) return;
+            if(!renderingCanvas.canvasUpdated) return;
 
-            element.style.backgroundImage = `url(${ TextureUtils.generateImageUrl(renderingCanvas.master) })`;
-        };
+            elementRef.current.style.backgroundImage = `url(${ TextureUtils.generateImageUrl(renderingCanvas.master) })`;
+        }
 
-        const onResize = (entries: ResizeObserverEntry[]) =>
+        if(!renderingCanvas)
         {
-            if (!entries || !entries.length) return;
-
-            const entry = entries[0];
-            const { width, height } = entry.contentRect;
-
-            if (width === 0 || height === 0) return;
-
-            const scale = 1.5;
-            const canvasWidth = width * scale;
-            const canvasHeight = height * scale;
-
-            if (!renderingCanvas)
+            if(elementRef.current && roomPreviewer)
             {
-                const computed = window.getComputedStyle(element, null);
+                const computed = document.defaultView.getComputedStyle(elementRef.current, null);
+
                 let backgroundColor = computed.backgroundColor;
+
                 backgroundColor = ColorConverter.rgbStringToHex(backgroundColor);
                 backgroundColor = backgroundColor.replace('#', '0x');
+
                 roomPreviewer.backgroundColor = parseInt(backgroundColor, 16);
 
-                roomPreviewer.getRoomCanvas(canvasWidth, canvasHeight);
-                renderingCanvas = roomPreviewer.getRenderingCanvas();
-            }
-            else
-            {
-                roomPreviewer.modifyRoomCanvas(canvasWidth, canvasHeight);
-            }
+                const width = elementRef.current.clientWidth;
+                const targetHeight = (fullHeight ? elementRef.current.clientHeight : height);
+                
+                roomPreviewer.getRoomCanvas(width, targetHeight);
 
-            if (renderingCanvas) renderingCanvas.canvasUpdated = true;
+                const canvas = roomPreviewer.getRenderingCanvas();
 
-            update(-1);
-        };
+                setRenderingCanvas(canvas);
+
+                canvas.canvasUpdated = true;
+
+                update(-1);
+            }
+        }
 
         GetTicker().add(update);
-        const resizeObserver = new ResizeObserver(onResize);
-        resizeObserver.observe(element);
+
+        const resizeObserver = new ResizeObserver(() =>
+        {
+            if(!roomPreviewer || !elementRef.current) return;
+
+            const width = elementRef.current.clientWidth;
+            const targetHeight = (fullHeight ? elementRef.current.clientHeight : height);
+
+            roomPreviewer.modifyRoomCanvas(width, targetHeight);
+
+            update(-1);
+        });
+        
+        resizeObserver.observe(elementRef.current);
 
         return () =>
         {
             resizeObserver.disconnect();
+
             GetTicker().remove(update);
-            roomPreviewer.dispose();
         }
-    }, [ roomPreviewer ]);
 
-    const getStyle = (): CSSProperties =>
-    {
-        const style: CSSProperties = {
-            backgroundPosition: '50% 50%',
-            backgroundRepeat: 'no-repeat'
-        };
-
-        if (fullHeight) style.height = '100%';
-        else if (typeof height === 'string') style.height = height;
-        else if (typeof height === 'number' && height > 0) style.height = `${ height }px`;
-
-        return style;
-    }
+    }, [ renderingCanvas, roomPreviewer, elementRef, height, fullHeight ]);
 
     return (
-        <div className="room-preview-container h-100 position-relative">
-            <div ref={ elementRef } className="room-preview-image" style={ getStyle() } onClick={ onClick } />
+        <div className="room-preview-container">
+            <div ref={ elementRef } className="room-preview-image" onClick={ onClick } />
             { children }
         </div>
     );

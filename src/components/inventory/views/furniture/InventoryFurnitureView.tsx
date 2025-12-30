@@ -167,15 +167,15 @@ export const InventoryFurnitureView: FC<InventoryFurnitureViewProps> = props =>
                 </LayoutGridItem>
             </Column>
             <Column size={ 5 } overflow="auto">
-                <Column fullHeight overflow="hidden" position="relative">
-                    <LayoutRoomPreviewerView roomPreviewer={ roomPreviewer } height='100%' />
+                <Column grow overflow="hidden" position="relative">
+                    <LayoutRoomPreviewerView fullHeight roomPreviewer={ roomPreviewer } />
                     { selectedItem && selectedItem.stuffData.isUnique &&
                         <LayoutLimitedEditionCompactPlateView className="top-2 end-2" position="absolute" uniqueNumber={ selectedItem.stuffData.uniqueNumber } uniqueSeries={ selectedItem.stuffData.uniqueSeries } /> }
                     { (selectedItem && selectedItem.stuffData.rarityLevel > -1) &&
                         <LayoutRarityLevelView className="top-2 end-2" position="absolute" level={ selectedItem.stuffData.rarityLevel } /> }
                 </Column>
                 { selectedItem &&
-                    <Column grow justifyContent="between" gap={ 1 } className="layout-grid-item p-1">
+                    <Column justifyContent="between" gap={ 1 } className="layout-grid-item p-1">
                         <Text wrap fontWeight="bold" small display="inline">{ selectedItem.name }</Text>
                         <Text wrap small display="inline">{ description }</Text>
                         <Column gap={ 1 }>

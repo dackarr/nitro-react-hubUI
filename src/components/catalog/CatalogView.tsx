@@ -72,33 +72,36 @@ export const CatalogView: FC<{}> = props =>
                 <NitroCardView windowPosition="DWP_TOP_LEFT" uniqueKey="catalog" className="nitro-catalog" style={ GetConfiguration('catalog.headers') ? { width: 710 } : {} }>
                     <NitroCardHeaderView headerText={ LocalizeText('catalog.title') } onCloseClick={ event => setIsVisible(false) } />
                     <NitroCardContentView>
-                        <NitroCardTabsView>
-                            { rootNode && (rootNode.children.length > 0) && rootNode.children.map(child =>
-                            {
-                                if(!child.isVisible) return null;
-
-                                return (
-                                    <NitroCardTabsItemView fit key={ child.pageId } isActive={ child.isActive } onClick={ event =>
-                                    {
-                                        if(searchResult) setSearchResult(null);
-
-                                        activateNode(child);
-                                    } } >
-                                        <Flex className="px-auto" gap={ GetConfiguration('catalog.tab.icons') ? 1 : 0 } alignItems="center">
-                                            { GetConfiguration('catalog.tab.icons') && <CatalogIconView icon={ child.iconId } /> }
-                                            { child.localization }
-                                        </Flex>
-                                    </NitroCardTabsItemView>
-                                );
-                            }) }
-                        </NitroCardTabsView>
                         <Grid overflow="hidden">
                             { !navigationHidden &&
-                                <Column size={ 3 } className="catalog-navigation" overflow="hidden">
-                                    { activeNodes && (activeNodes.length > 0) &&
-                                        <CatalogNavigationView node={ activeNodes[0] } /> }
-                                </Column> }
+                                <>
+                                    <Column size={3} className="catalog-navigation" overflow="hidden">
+                                        <div className='catalog-navigation-spacer' />
+                                        {activeNodes && (activeNodes.length > 0) &&
+                                            <CatalogNavigationView node={activeNodes[0]} />}
+                                    </Column>   
+                                </> }
                             <Column size={ !navigationHidden ? 9 : 12 } overflow="hidden">
+                                <NitroCardTabsView>
+                                    { rootNode && (rootNode.children.length > 0) && rootNode.children.map(child =>
+                                    {
+                                        if(!child.isVisible) return null;
+
+                                        return (
+                                            <NitroCardTabsItemView fit key={ child.pageId } isActive={ child.isActive } onClick={ event =>
+                                            {
+                                                if(searchResult) setSearchResult(null);
+
+                                                activateNode(child);
+                                            } } >
+                                                <Flex className="px-auto" gap={ GetConfiguration('catalog.tab.icons') ? 1 : 0 } alignItems="center">
+                                                    { GetConfiguration('catalog.tab.icons') && <CatalogIconView icon={ child.iconId } /> }
+                                                    { child.localization }
+                                                </Flex>
+                                            </NitroCardTabsItemView>
+                                        );
+                                    }) }
+                                </NitroCardTabsView>
                                 { GetCatalogLayout(currentPage, () => setNavigationHidden(true)) }
                             </Column>
                         </Grid>

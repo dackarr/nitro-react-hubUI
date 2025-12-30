@@ -22,10 +22,10 @@ export const CatalogLayoutBadgeDisplayView: FC<CatalogLayoutProps> = props =>
                 { currentOffer &&
                     <Base className="catalog-item-preview" position="relative" overflow="hidden">
                         <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>
-                            <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>
-                                <Text fullWidth grow variant="white" truncate>{ currentOffer.localizationName }</Text>
+                            <Column fullWidth className="position-absolute p-2 bottom-0" style={ { zIndex: 99 } }>
                                 <CatalogLimitedItemWidgetView fullWidth />
-                            </Flex>
+                                <Text fullWidth className="catalog-item-title" variant="white" truncate>{ currentOffer.localizationName }</Text>
+                            </Column>
                         </Flex>
                         <CatalogViewProductWidgetView height={ 255 } />
                     </Base> 

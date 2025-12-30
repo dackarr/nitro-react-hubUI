@@ -1,6 +1,6 @@
 import { FC, MouseEvent, useEffect, useMemo, useState } from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
-import { Base, Flex, Grid, NitroCardContentView, Text } from '../../../../common';
+import { Base, Button, Flex, Grid, NitroCardContentView } from '../../../../common';
 
 interface Emoji
 {
@@ -31,6 +31,7 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
     const [ emojiGroups, setEmojiGroups ] = useState<EmojiGroup[]>([]);
     const [ emojis, setEmojis ] = useState<Emoji[]>([]);
     const [ selectedGroup, setSelectedGroup ] = useState<string>(null);
+    const [ searchQuery, setSearchQuery ] = useState<string>('');
 
     useEffect(() =>
     {
@@ -46,6 +47,35 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
         })
         .catch(err => console.error(err));
     }, []);
+
+    const getGroupText = (slug: string) =>
+    {
+        switch(slug)
+        {
+            case 'smileys-emotion':
+                return 'Smileys & Emotion';
+            case 'people-body':
+                return 'People & Body';
+            case 'animals-nature':
+                return 'Animals & Nature';
+            case 'food-drink':
+                return 'Food & Drink';
+            case 'travel-places':
+                return 'Travel & Places';
+            case 'activities':
+                return 'Activities';
+            case 'objects':
+                return 'Objects';
+            case 'symbols':
+                return 'Symbols';
+            case 'flags':
+                return 'Flags';
+            case 'Alt Codes':
+                return 'Alt Codes';
+            default:
+                return slug;
+        }
+    }
 
     const toggleSelector = (event: MouseEvent<HTMLElement>) =>
     {
@@ -70,55 +100,37 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
 
     const currentEmojis = useMemo(() =>
     {
-        if(!selectedGroup) return [];
+        let filteredEmojis = emojis;
 
-        return emojis.filter(emoji => emoji.group === selectedGroup);
-    }, [ emojis, selectedGroup ]);
-
-    const getGroupIcon = (slug: string) =>
-    {
-        switch(slug)
+        if(searchQuery.length > 0)
         {
-            case 'smileys-emotion':
-                return '😀';
-            case 'people-body':
-                return '👋';
-            case 'animals-nature':
-                return '🐻';
-            case 'food-drink':
-                return '🍔';
-            case 'travel-places':
-                return '🚗';
-            case 'activities':
-                return '⚽';
-            case 'objects':
-                return '💡';
-            case 'symbols':
-                return '❤️';
-            case 'flags':
-                return '🏳️';
-            case 'Alt Codes':
-                return 'ƒ';
-            default:
-                return slug;
+            filteredEmojis = filteredEmojis.filter(emoji => emoji.unicodeName.toLowerCase().includes(searchQuery.toLowerCase()));
         }
-    }
+        else if(selectedGroup)
+        {
+            filteredEmojis = filteredEmojis.filter(emoji => emoji.group === selectedGroup);
+        }
+
+        return filteredEmojis;
+    }, [ emojis, selectedGroup, searchQuery ]);
 
     return (
         <>
             <Base pointer className="icon icon-emojis" onClick={ toggleSelector } />
             <Overlay show={ selectorVisible } target={ target } placement="top" rootClose onHide={ () => setSelectorVisible(false) }>
                 <Popover className="hub-emoji-picker image-rendering-pixelated">
-                    <NitroCardContentView overflow="hidden" className="bg-transparent">
-                        <Flex style={ { overflowY: 'hidden' } } gap={ 1 } className="pb-1 h-25 w-100 border-bottom">
+                    <NitroCardContentView gap={0} overflow="hidden" className="bg-transparent">
+                        <select className="form-select form-select-sm mb-1" value={ selectedGroup } onChange={ event => setSelectedGroup(event.target.value) }>
                             { emojiGroups.map(group =>
                             {
-                                return (
-                                    <Base key={ group.slug } pointer className={ `p-1 rounded ${ (selectedGroup === group.slug) ? 'layout-grid-item layout-inner active' : 'layout-grid-item layout-inner' }` } onClick={ () => setSelectedGroup(group.slug) }>
-                                        <Text fontSize={4} bold>{ getGroupIcon(group.slug) }</Text>
-                                    </Base>
-                                );
+                                return <option key={ group.slug } value={ group.slug }>{ getGroupText(group.slug) }</option>
                             }) }
+                        </select>
+                        <Flex alignItems="center" className="layout-search">
+                            <Button variant="primary" className="search-button">
+                                <Base className="icon icon-search" />
+                            </Button>
+                            <input type="text" className="form-control form-control-sm" placeholder="Search emojis..." value={ searchQuery } onChange={ event => setSearchQuery(event.target.value) } />
                         </Flex>
                         <Grid columnCount={ 5 } overflow="auto" className="pt-1">
                             { currentEmojis.map((emoji, index) =>

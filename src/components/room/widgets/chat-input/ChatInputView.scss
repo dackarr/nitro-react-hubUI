@@ -107,6 +107,14 @@
     right: 0;
     margin: auto;
 
+    .form-select {
+        border-bottom-width: 2px;
+    }
+
+    .form-control   {
+        height: 24px;
+    }
+
     .layout-grid-item {
         font-size: 33px;
         width: 42px;

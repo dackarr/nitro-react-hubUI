@@ -44,6 +44,14 @@
         font-size:12px;
         align-self:flex-end
     }
+
+    .catalog-item-title {
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px 4px;
+        border-radius: $border-radius;
+        align-items: center;
+    }
 }
 
 .nitro-catalog-gift {
@@ -87,6 +95,11 @@
 .catalog-navigation {
     width:175px;
     padding-bottom: 0px;
+
+    .catalog-navigation-spacer {
+        height: 30px;
+        flex-shrink: 0;
+    }
 
     &.nitro-catalog-navigation-grid-container {
         background-color: #c1cbd7;
