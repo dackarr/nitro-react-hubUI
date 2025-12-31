@@ -36,7 +36,7 @@ export const FriendsMessengerThreadGroup: FC<{ thread: MessengerThread, group: M
                                         <Base className='alert-text'>{ chat.message }</Base>
                                     </Flex> }
                                 { (chat.type === MessengerThreadChat.ROOM_INVITE) &&
-                                    <Flex gap={ 2 } alignItems="center" className="alert-info message-text small text-black">
+                                    <Flex gap={ 2 } alignItems="center" className="alert-info room-invite message-text p-1 small text-black">
                                         <Base className="messenger-notification-icon flex-shrink-0" />
                                         <Base className='alert-text'>{ (LocalizeText('messenger.invitation') + ' ') }{ chat.message }</Base>
                                     </Flex> }

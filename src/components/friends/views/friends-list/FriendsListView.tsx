@@ -134,12 +134,13 @@ export const FriendsListView: FC<{}> = props =>
                         <FriendsListRequestView className='accordion-orange' headerText={ LocalizeText('friendlist.tab.friendrequests') + ` (${ requests.length })` } isExpanded={ true } />
                         <FriendsSearchView className='accordion-dark-grey' headerText={ LocalizeText('people.search.title') } />
                     </NitroCardAccordionView>
-                    { selectedFriendsIds && selectedFriendsIds.length > 0 &&
-                        <Flex gap={ 1 } className="p-1">
-                            <Button fullWidth onClick={ () => setShowRoomInvite(true) }>{ LocalizeText('friendlist.tip.invite') }</Button>
-                            <Button fullWidth variant="danger" onClick={ event => setShowRemoveFriendsConfirmation(true) }>{ LocalizeText('generic.delete') }</Button>
-                        </Flex> } 
-                    <div className="bottom-header"/>
+                    <Flex className="bottom-header">
+                        { selectedFriendsIds && selectedFriendsIds.length > 0 &&
+                            <Flex fit gap={ 1 }>
+                                <Button fullWidth onClick={ () => setShowRoomInvite(true) }>{ LocalizeText('friendlist.tip.invite') }</Button>
+                                <Button fullWidth variant="danger" onClick={ event => setShowRemoveFriendsConfirmation(true) }>{ LocalizeText('generic.delete') }</Button>
+                            </Flex> } 
+                    </Flex>
                 </NitroCardContentView>
             </NitroCardView>
             { showRoomInvite &&
