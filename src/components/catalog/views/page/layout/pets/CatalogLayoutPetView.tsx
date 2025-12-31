@@ -204,14 +204,14 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
                     <>
                         <Base className="catalog-item-preview" position="relative" overflow="hidden">
                             <Column fullWidth className="position-absolute p-2 bottom-0" style={ { zIndex: 99 } }>
-                                <Flex justifyContent='between' fullWidth className="catalog-item-title">
-                                    <Text variant='white' truncate>{ currentOffer.localizationName }</Text>
-                                    <CatalogAddOnBadgeWidgetView position="absolute" className="bg-muted rounded bottom-1 end-1" />
+                                <Flex fullWidth justifyContent='between' className="catalog-item-title" >
+                                    <Text truncate variant='white'>{ currentOffer.localizationName }</Text>
                                     { ((petIndex > -1) && (petIndex <= 7)) &&
-                                        <Button onClick={ event => setColorsShowing(!colorsShowing) }>
-                                            <Base className="icon icon-color-picker" />
-                                        </Button> }
-                                    </Flex>
+                                    <Button onClick={ event => setColorsShowing(!colorsShowing) }>
+                                        <Base className="icon icon-color-picker" />
+                                    </Button> }
+                                </Flex>
+                                <CatalogAddOnBadgeWidgetView position="absolute" className="bg-muted rounded bottom-1 end-1" />
                             </Column>
                             <CatalogViewProductWidgetView height={ 255 } />
                         </Base>
@@ -230,15 +230,13 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
                         </AutoGrid>
                     </Column>
                     { currentOffer &&
-                        <Flex column gap={1} className="mt-auto purchase-container">
-                            <Column gap={ 1 }>
-                                <Column gap={ 1 }>
-                                    <Flex fullWidth>
-                                        <Text fullWidth small>{ LocalizeText('widgets.petpackage.name.title') }</Text>
-                                        { (approvalResult > 0) &&
-                                            <Base fullWidth className="invalid-feedback d-block m-0">{ validationErrorMessage }</Base> }
-                                    </Flex>
+                        <Flex column gap={1} className="mt-auto">
+                            <Column grow gap={ 1 }>
+                                <Column grow gap={ 1 }>
+                                    <Text small>{ LocalizeText('widgets.petpackage.name.title') }</Text>
                                     <input type="text" className="form-control form-control-sm w-100" placeholder="" value={ petName } onChange={ event => setPetName(event.target.value) } />
+                                    { (approvalResult > 0) &&
+                                        <Base className="invalid-feedback d-block m-0">{ validationErrorMessage }</Base> }
                                 </Column>
                             </Column>
                             <Flex justifyContent="end">

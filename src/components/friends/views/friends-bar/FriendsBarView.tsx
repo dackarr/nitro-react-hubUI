@@ -1,7 +1,7 @@
 import { FC, useRef, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { CreateLinkEvent, MessengerFriend } from '../../../../api';
-import { Base, Button, Flex, LayoutItemCountView } from '../../../../common';
+import { MessengerFriend } from '../../../../api';
+import { Base, Button, Flex } from '../../../../common';
 import { useFriends } from '../../../../hooks';
 import { FriendBarItemView } from './FriendBarItemView';
 
@@ -17,10 +17,6 @@ export const FriendBarView: FC<{ onlineFriends: MessengerFriend[] }> = props =>
 
     return (
         <Flex innerRef={ elementRef } alignItems="center" className={ `friend-bar ${ isCollapsed ? 'collapsed' : '' }` }>
-            <Base pointer className="friend-bar-inner navigation-item icon icon-friendall p-4" onClick={ event => CreateLinkEvent('friends/toggle') }>
-                { (requests.length > 0) &&
-                    <LayoutItemCountView count={ requests.length } /> }
-            </Base>
             <Flex gap={ 1 } justifyContent="center" alignItems="center" fullHeight fullWidth className="friend-bar-inner p-2">
                 { onlineFriends[ indexOffset ] &&
                 <Button disabled={ indexOffset === 0 } fullHeight variant="transparent" className="btn-hubGrey3 friend-bar-button" onClick={ event => setIndexOffset(indexOffset - 1) }>

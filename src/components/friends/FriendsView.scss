@@ -78,6 +78,41 @@
     &.icon-follow {
         width: 17px; height: 17px;
         background-position: -96px -26px;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
+        
+        &:active {
+            filter: brightness(0.8);
+        }
+    }
+
+    &.icon-messenger-close {
+        width: 13px; height: 15px;
+        background-position: -96px -70px;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
+
+        &:active {
+            filter: brightness(0.8);
+        }
+    }
+
+    &.icon-report {
+        width: 11px; height: 14px;
+        background-position: -80px -70px;
+
+        &:hover {
+            background-position: -80px -88px;
+        }
+
+        &:active {
+            background-position: -80px -88px;
+            filter: brightness(0.8);
+        }
     }
 
     &.icon-friendbar-chat {
@@ -430,11 +465,60 @@
     }
 }
 
+
+.messenger-input {
+    height: 50px;
+
+    textarea {
+        background-color: white;
+        border: 1px solid #8F8F9D;
+        font-size: 12px;
+        padding: 4px;
+
+        &:focus {
+            background-color: white;
+            border: 1px solid #767680;
+            font-size: 12px;
+            outline: none;
+        }
+    }
+}
+
 .nitro-friends-messenger {
     width: $messenger-width;
     height: $messenger-height;
     min-width: $messenger-width;
     min-height: $messenger-height;
+
+    .bottom-header {
+        height: 65px!important;
+    }
+
+    .alert-info {
+        background-color: $light;
+        border-bottom: 2px solid $muted;
+        box-shadow: inset 0 0 0 1px white;
+    }
+
+    .participant-info {
+        box-shadow: inset 0 0 0 1px #bdeaff;
+        background: repeating-linear-gradient(#8ADAFF,#8ADAFF 50%,#57caff 50%,#57caff 100%);
+        border-top: 1px solid #0093d7;
+        border-bottom: 1px solid #0093d7;
+    }
+
+    .layout-grid-item {
+        background: repeating-linear-gradient(#c1cbd7,#c1cbd7 50%,#a2b1c3 50%,#a2b1c3 100%);
+        border: 1px solid #5a718c;
+        box-shadow: inset 0 0 0 1px #e0e5eb;
+        border-radius: 0;
+
+        &.active {
+            box-shadow: inset 0 0 0 1px #fafbfc;
+            background: repeating-linear-gradient(#DBE2E8,#DBE2E8 50%,#bcc9d4 50%,#bcc9d4 100%);
+            border-color: #6e8aa2;
+        }
+    }
 
     .layout-grid-item {
         min-height: 50px;
@@ -484,6 +568,19 @@
 
     .chat-messages {
         overflow-y: auto;
+
+        .not-own-chat {
+            background-color: #C9E1EC;
+        }
+
+        .message-text {
+            font-size: 12px;
+            padding: 2px 4px;
+        }
+
+        .alert-text {
+            font-size: 10px;
+        }
 
         .message-avatar {
             position: relative;

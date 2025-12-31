@@ -94,10 +94,14 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
                         { (getTotalUnseen > 0) &&
                             <LayoutItemCountView count={ getTotalUnseen } /> }
                     </Flex>
+                    <Base pointer className="navigation-item icon icon-message" onClick={ event => CreateLinkEvent('friends/toggle') }>
+                        { (requests.length > 0) &&
+                            <LayoutItemCountView count={ requests.length } /> }
+                    </Base>
                     { isInRoom &&
                         <Base pointer className="navigation-item icon icon-camera" onClick={ event => CreateLinkEvent('camera/toggle') } /> }
                     { ((iconState === MessengerIconState.SHOW) || (iconState === MessengerIconState.UNREAD)) &&
-                        <Base pointer className={ `navigation-item icon icon-message ${ (iconState === MessengerIconState.UNREAD) && 'is-unseen' }` } onClick={ event => OpenMessengerChat() } /> }
+                        <Base pointer className={ `navigation-item icon icon-chat-message ${ (iconState === MessengerIconState.UNREAD) && 'is-unseen' }` } onClick={ event => OpenMessengerChat() } /> }
                 </Flex>
             </Flex>
             <Flex gap={ 2 } alignItems="center">
