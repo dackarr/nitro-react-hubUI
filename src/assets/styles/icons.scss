@@ -8,6 +8,16 @@
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
+    
+    &.icon-navigator-favorite-room {
+        background: url('@/assets/images/navigator/icons/favorite.png');
+        width: 13px;
+        height: 12px;
+
+        &.active {
+            background: url('@/assets/images/navigator/icons/favorite-active.png');
+        }
+    }
 
     &.icon-room-link {
         background: url('@/assets/images/icons/room-link.png');

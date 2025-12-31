@@ -1,6 +1,6 @@
 import { GetCustomRoomFilterMessageComposer, NavigatorSearchComposer, RoomMuteComposer, RoomSettingsComposer, SecurityLevel, ToggleStaffPickMessageComposer, UpdateHomeRoomMessageComposer } from '@nitrots/nitro-renderer';
 import { FC, useEffect, useState } from 'react';
-import { CreateLinkEvent, DispatchUiEvent, GetGroupInformation, GetSessionDataManager, LocalizeText, ReportType, SendMessageComposer } from '../../../api';
+import { CreateLinkEvent, DispatchUiEvent, GetGroupInformation, GetSessionDataManager, LocalizeText, ReportType, SendMessageComposer, ToggleFavoriteRoom } from '../../../api';
 import { Base, Button, classNames, Column, Flex, LayoutBadgeImageView, LayoutRoomThumbnailView, NitroCardContentView, NitroCardHeaderView, NitroCardView, Text, UserProfileIconView } from '../../../common';
 import { RoomWidgetThumbnailEvent } from '../../../events';
 import { useHelp, useNavigator } from '../../../hooks';
@@ -16,7 +16,7 @@ export const NavigatorRoomInfoView: FC<NavigatorRoomInfoViewProps> = props =>
     const [ isRoomPicked, setIsRoomPicked ] = useState(false);
     const [ isRoomMuted, setIsRoomMuted ] = useState(false);
     const { report = null } = useHelp();
-    const { navigatorData = null } = useNavigator();
+    const { navigatorData = null, favouriteRoomIds, setFavouriteRoomIds } = useNavigator();
 
     const hasPermission = (permission: string) =>
     {
@@ -79,6 +79,24 @@ export const NavigatorRoomInfoView: FC<NavigatorRoomInfoViewProps> = props =>
             case 'report_room':
                 report(ReportType.ROOM, { roomId: navigatorData.enteredGuestRoom.roomId, roomName: navigatorData.enteredGuestRoom.roomName });
                 return;
+            case 'room_favourite':
+                const isFavorite = favouriteRoomIds.includes(navigatorData.enteredGuestRoom.roomId);
+                ToggleFavoriteRoom(navigatorData.enteredGuestRoom.roomId, isFavorite);
+
+                if(setFavouriteRoomIds)
+                {
+                    setFavouriteRoomIds(prevValue =>
+                    {
+                        const newValue = [ ...prevValue ];
+                        const index = newValue.indexOf(navigatorData.enteredGuestRoom.roomId);
+
+                        if(index === -1) newValue.push(navigatorData.enteredGuestRoom.roomId);
+                        else newValue.splice(index, 1);
+
+                        return newValue;
+                    });
+                }
+                return;
             case 'close':
                 onCloseClick();
                 return;
@@ -135,6 +153,7 @@ export const NavigatorRoomInfoView: FC<NavigatorRoomInfoViewProps> = props =>
                                     </Column>
                                     <Flex column alignItems="center" gap={ 1 }>
                                         <i onClick={ () => processAction('set_home_room') } className={ classNames('flex-shrink-0 icon icon-house-small cursor-pointer', ((navigatorData.homeRoomId !== navigatorData.enteredGuestRoom.roomId) && 'gray')) } />
+                                        <i onClick={ () => processAction('room_favourite') } className={ classNames('flex-shrink-0 icon cursor-pointer', (favouriteRoomIds.includes(navigatorData.enteredGuestRoom.roomId) ? 'icon-group-favorite' : 'icon-group-not-favorite')) } />
                                         { hasPermission('settings') &&
                                             <i className="icon icon-cog cursor-pointer" title={ LocalizeText('navigator.room.popup.info.room.settings') } onClick={ event => processAction('open_room_settings') } /> }
                                         <Base title={ LocalizeText('navigator.embed.caption') } className="cursor-pointer icon icon-room-link" onClick={ event => CreateLinkEvent('navigator/toggle-room-link') } />
