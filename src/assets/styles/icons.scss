@@ -239,6 +239,12 @@
         background-image: url('@/assets/images/toolbar/icons/messenger.png');
         width: 36px;
         height: 32px;
+    }
+
+    &.icon-chat-message {
+        background-image: url('@/assets/images/toolbar/icons/message_chat.png');
+        width: 36px;
+        height: 32px;
 
         &.is-unseen {
             background-image: url('@/assets/images/toolbar/icons/message_unsee.gif');
@@ -404,6 +410,7 @@
     &.icon-small-room {
         background: url('@/assets/images/icons/small-room.png');
         width: 17px;
+        min-width: 17px;
         height: 16px;
     }
 

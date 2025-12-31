@@ -10,8 +10,11 @@ Thanks to everyone that has helped out contributing to this UI:
 - Robbis
 - Live
 - Laynester
+- Himalayo
 - Dennis
 - Object
+- Thomas
+- Billsonnn
 
 ## Prerequisites
 
