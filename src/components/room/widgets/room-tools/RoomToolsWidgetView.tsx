@@ -87,7 +87,7 @@ export const RoomToolsWidgetView: FC<{}> = props =>
                 </Flex>
                 <Flex className="tools-content">
                     <Column gap={ 0 } className="px-2 py-1">
-                        <Text className="rt-room-name" wrap variant="white">{ roomName }</Text>
+                        <Text className="rt-room-name" variant="white">{ roomName }</Text>
                         <Flex gap={ 1 } justifyContent="between" className="flex-1">
                             <Text className="mb-1" shrink={ false } variant="muted">{ roomOwner }</Text>
                             <Flex gap={ 1 } alignSelf="end">

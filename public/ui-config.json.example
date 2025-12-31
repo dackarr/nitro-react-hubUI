@@ -63,6 +63,7 @@
         { "clubLevel": 2, "tileSize": 888, "name": "8" },
         { "clubLevel": 2, "tileSize": 926, "name": "9" }
     ],
+    "hotelview.time.offset": -5,
     "hotelview": {
         "show.avatar": true,
         "widgets": {
