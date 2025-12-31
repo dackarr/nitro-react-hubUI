@@ -66,6 +66,12 @@
 
 .nitro-room-info {
     width: $room-info-width;
+
+    .rt-room-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 .nitro-room-link {

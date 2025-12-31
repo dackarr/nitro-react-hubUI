@@ -13,14 +13,35 @@
     }
 
     &.name-only {
-        background-color: rgba($black, 0.5);
-        padding: 1px 8px;
+        padding: 4px 16px;
         width: unset;
         text-align: center;
-        font-size: 18px;
+        font-size: .825rem;
 
         &.is-friend {
-            background-color: rgba($green, 0.5);
+            background-color: #778849;
+            box-shadow: inset 0 0 0 1px #9aad66;
+
+            &::after {
+                background-color: #778849;
+                box-shadow: inset 0 -1px #9aad66,inset -1px 0 #9aad66;  
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 13px;
+            width: 13px;
+            transform: rotate(45deg);
+            background-color: #3a3a3a;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            box-shadow: inset 0 -1px #606060,inset -1px 0 #606060;
         }
     }
 

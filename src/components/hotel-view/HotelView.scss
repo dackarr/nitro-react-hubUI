@@ -3,8 +3,50 @@
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
-	background: url('@/assets/images/landingview/grass.png') !important;
 	color:#fff;
+
+	&.filtered {
+		filter: brightness(.4) contrast(1.2) saturate(2);
+	}
+
+	.hotelview-filtered {
+
+		.avatar-image {
+			filter: brightness(.6) contrast(1.2) saturate(2);
+		}
+
+		.welcome-message {
+			filter: brightness(.6) contrast(1.2) saturate(2);
+		}
+
+		.sun {
+			filter: brightness(.4) contrast(1.2) saturate(2);
+		}
+
+		.drape {
+			filter: brightness(.4) contrast(1.2) saturate(2);
+		}
+
+		.left {
+			filter: brightness(.4) contrast(1.2) saturate(2);
+		}
+
+		.right-repeat {
+			filter: brightness(.4) contrast(1.2) saturate(2);
+		}
+
+		.crossroads {
+			filter: brightness(.4) contrast(1.2) saturate(2);
+		}
+
+		.grass {
+			filter: brightness(.4) contrast(1.2) saturate(2);
+		}
+
+		.car {
+			filter: brightness(.6) contrast(1.2) saturate(2);
+		}
+	}
 
 
 	.avatar-image {
@@ -38,10 +80,29 @@
 		background-repeat: no-repeat;
 	}
 
+	.user-container {
+		position: absolute;
+		z-index: 5;
+	}
+
+	.grass {
+		background: url('@/assets/images/landingview/grass.png') !important;
+		width: 100%;
+		height: 100%;
+	}
+
 	.crossroads {
 		background: url('@/assets/images/landingview/crossroads.png');
 		width: 2227px;
 		height: 1144px;
+	}
+
+	.night-windows {
+		background: url('@/assets/images/landingview/windows.png');
+		width: 653px;
+		height: 329px;
+		top: 0px;
+    	z-index: 4;
 	}
 	
 	.left-normal {
@@ -69,7 +130,7 @@
 
 	.car {
 		position: absolute;
-		z-index: 5;
+		z-index: 99;
 	}
 
 	.welcome-message {
@@ -85,9 +146,9 @@
 		background-image: url('@/assets/images/landingview/overlay.png') !important;
 		width: 1920px;
 		height: 1080px;
-		top: -1902px;
+		top: -951px;
 		left: -154px;
-		z-index: 3;
+		z-index: 5;
 		position: relative !important;
 		margin: auto;
 		background-repeat: no-repeat;
@@ -101,7 +162,7 @@
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
-		z-index: 1;
+		z-index: 3;
 		animation-iteration-count: 1;
 		animation-name: slideUp;
 		animation-duration: 1s;
@@ -112,12 +173,20 @@
 		height: 200vh;
 		top: 0;
 		position: inherit;
-		z-index: 11;
+		z-index: 2;
 		animation-iteration-count: 1;
 		animation-name: slideUp;
 		animation-duration: 1s;
 		background-repeat: no-repeat;
 		background-position: 44px 160px;
+
+		&.crossroads {
+			z-index: 100;
+		}
+
+		&.grass {
+			z-index: 1;
+		}
 	}
 
 	.right-repeat {
