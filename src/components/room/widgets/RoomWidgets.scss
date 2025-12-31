@@ -77,6 +77,9 @@
         }
 
         .rt-room-name {
+            max-width: '100%';
+            overflow: hidden;
+            text-overflow: ellipsis;
             width: 254px;
             white-space: nowrap;
         }
