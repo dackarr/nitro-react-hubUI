@@ -17,9 +17,28 @@ export const HotelView: FC<{}> = props =>
     const [ isVisible, setIsVisible ] = useState(true);
     const [ isFullscreen, setIsFullscreen ] = useState(false);
     const { userFigure = null, userInfo = null } = useSessionInfo();
+    const timeOffset = GetConfiguration<number>('hotelview.time.offset', 0);
+
+    const getIsNight = () =>
+    {
+        const now = new Date();
+        const hotelTime = new Date(now.getTime() + (timeOffset * 3600000));
+        const hour = hotelTime.getUTCHours();
+
+        return (hour >= 18 || hour < 7);
+    };
+
+    const [ isFilter, setFilter ] = useState(getIsNight);
     const [ dynamicText, setDynamicText ] = useState<string>(
         `${ LocalizeText('landing.view.generic.welcome.content') }`
     );
+
+    useEffect(() =>
+    {
+        const interval = setInterval(() => setFilter(getIsNight()), 5000);
+
+        return () => clearInterval(interval);
+    }, [ timeOffset ]);
 
     useRoomSessionManagerEvent<RoomSessionEvent>([
         RoomSessionEvent.CREATED,
@@ -81,10 +100,9 @@ export const HotelView: FC<{}> = props =>
     const right = NitroConfiguration.interpolate(GetConfiguration('hotelview')['images']['right']);
 
     return (
-        <div className="nitro-hotel-view"
+        <div className="w-100 h-100 nitro-hotel-view"
             style={ (backgroundColor && backgroundColor) ? { background: backgroundColor } : {} }>
-            <CarAnimationView/>
-            <div className="container h-100 py-3 overflow-hidden landing-widgets">
+            <div className="container h-100 w-100 py-3 overflow-hidden landing-widgets">
                 <div className="row h-100">
                     <div className="col-9 h-100 d-flex flex-column">
                         <WidgetSlotView
@@ -135,27 +153,38 @@ export const HotelView: FC<{}> = props =>
                     </div>
                 </div>
             </div>
-            <div className={ `sun overlay position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
-            <div className={ `drape position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }
-                style={ (drape && drape.length) ? { backgroundImage: `url(${ drape })` } : {} }/>
-            <div className={ `left ${ (left && left.length) ? 'left-normal' : '' } position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
-            <div className={ `right-repeat position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
-            <div className={ `right ${(right && right.length) ? 'crossroads' : ''} position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
-                (
-                    <Flex>
-                        <Flex className="avatar-image">
-                            <LayoutAvatarImageView figure={ userFigure } direction={ 2 }/>
-                        </Flex>
-                        <Flex style={ { zIndex: 3 } } className="welcome-message">
-                            <Column gap={ 1 } className="text-welcome-message">
-                                <Text
-                                    className="text-black font-bold">{ LocalizeText('landing.view.generic.welcome.title').replace('%username%', GetSessionDataManager().userName) }
-                                </Text>
-                                <Text className="text-black subtitle">{ dynamicText }</Text>
-                            </Column>
-                        </Flex>
+            <div className={`w-100 h-100 relative hotelview${ isFilter ? '-filtered' : '' }`}>
+                <div className='w-100 h-100 relative'>
+                    { isFilter &&
+                        <div className="position-absolute night-windows"/>
+                    }
+                    <div className={ `right ${(right && right.length) ? 'grass' : ''} position-absolute z-n1 ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                    <div className={ `right ${(right && right.length) ? 'crossroads' : ''} position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                    <div className={ `sun overlay position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                    <div className={ `drape position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }
+                        style={ (drape && drape.length) ? { backgroundImage: `url(${ drape })` } : {} }/>
+                    <div className={ `left ${ (left && left.length) ? 'left-normal' : '' } position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                    <div className={ `right-repeat position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                </div>
+            </div>
+            <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 20, pointerEvents: 'none' }}>
+                <CarAnimationView />
+
+                
+            </div>
+            <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 4, pointerEvents: 'none' }}>
+                    <Flex className="avatar-image">
+                        <LayoutAvatarImageView figure={ userFigure } direction={ 2 }/>
                     </Flex>
-                )
+                    <Flex style={ { zIndex: 3 } } className="welcome-message">
+                        <Column gap={ 1 } className="text-welcome-message">
+                            <Text
+                                className="text-black font-bold">{ LocalizeText('landing.view.generic.welcome.title').replace('%username%', GetSessionDataManager().userName) }
+                            </Text>
+                            <Text className="text-black subtitle">{ dynamicText }</Text>
+                        </Column>
+                    </Flex>
+            </div>
         </div>
     );
 };
