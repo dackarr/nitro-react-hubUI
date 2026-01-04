@@ -143,8 +143,8 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                                     <Column fullWidth className="body-image" onClick={event => GetUserProfile(avatarInfo.webID)}>
                                         <LayoutAvatarImageView figure={avatarInfo.figure} direction={4} />
                                     </Column>
-                                    <Column grow alignItems="center" gap={0}>
-                                        <Flex gap={1}>
+                                    <Column fullWidth grow alignItems="center" gap={1}>
+                                        <Flex fullWidth justifyContent='around' gap={1}>
                                             <Flex center className="badge-image">
                                                 {avatarInfo.badges[0] && <LayoutBadgeImageView badgeCode={avatarInfo.badges[0]} showInfo={true} />}
                                             </Flex>
@@ -153,7 +153,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                                                     <LayoutBadgeImageView badgeCode={avatarInfo.groupBadgeId} isGroup={true} showInfo={true} customTitle={avatarInfo.groupName} />}
                                             </Flex>
                                         </Flex>
-                                        <Flex center gap={1}>
+                                        <Flex fullWidth justifyContent='around' center gap={1}>
                                             <Flex center className="badge-image">
                                                 {avatarInfo.badges[1] && <LayoutBadgeImageView badgeCode={avatarInfo.badges[1]} showInfo={true} />}
                                             </Flex>
@@ -161,7 +161,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                                                 {avatarInfo.badges[2] && <LayoutBadgeImageView badgeCode={avatarInfo.badges[2]} showInfo={true} />}
                                             </Flex>
                                         </Flex>
-                                        <Flex center gap={1}>
+                                        <Flex fullWidth justifyContent='around' center gap={1}>
                                             <Flex center className="badge-image">
                                                 {avatarInfo.badges[3] && <LayoutBadgeImageView badgeCode={avatarInfo.badges[3]} showInfo={true} />}
                                             </Flex>

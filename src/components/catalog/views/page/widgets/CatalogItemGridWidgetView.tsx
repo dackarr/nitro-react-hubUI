@@ -44,7 +44,7 @@ export const CatalogItemGridWidgetView: FC<CatalogItemGridWidgetViewProps> = pro
     }
 
     return (
-        <AutoGrid gap={1} innerRef={ elementRef } columnCount={ columnCount } { ...rest }>
+        <AutoGrid columnMinHeight={42} columnMinWidth={42} gap={1} innerRef={ elementRef } columnCount={ columnCount } { ...rest }>
             { currentPage.offers && (currentPage.offers.length > 0) && currentPage.offers.map((offer, index) => <CatalogGridOfferView key={ index } itemActive={ (currentOffer && (currentOffer.offerId === offer.offerId)) } offer={ offer } selectOffer={ selectOffer } />) }
             { children }
         </AutoGrid>
