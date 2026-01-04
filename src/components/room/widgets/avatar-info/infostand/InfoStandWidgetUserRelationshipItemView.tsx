@@ -23,7 +23,7 @@ export const InfoStandWidgetUserRelationshipsRelationshipItemView: FC<InfoStandW
                 <Base className={ `nitro-friends-spritesheet icon-${ relationshipName }` } />
             </Flex>
             <Text small variant="white" onClick={ event => GetUserProfile(relationship.randomFriendId) }>
-                <u>{ relationship.randomFriendName }</u>
+                <u className='cursor-pointer'>{ relationship.randomFriendName }</u>
                 { (relationship.friendCount > 1) && (' ' + LocalizeText(`extendedprofile.relstatus.others.${ relationshipName }`, [ 'count' ], [ (relationship.friendCount - 1).toString() ])) }
             </Text>
         </Flex>
