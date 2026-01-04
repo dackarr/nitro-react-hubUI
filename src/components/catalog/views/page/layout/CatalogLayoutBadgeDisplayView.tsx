@@ -18,7 +18,7 @@ export const CatalogLayoutBadgeDisplayView: FC<CatalogLayoutProps> = props =>
     return (
         <>
             <CatalogFirstProductSelectorWidgetView />
-            <Column gap={1} fullWidth fullHeight>
+            <Column overflow='hidden' gap={1} fullWidth fullHeight>
                 { currentOffer &&
                     <Base className="catalog-item-preview" position="relative" overflow="hidden">
                         <Flex fullWidth className="position-absolute p-2" style={ { zIndex: 99 } }>

@@ -155,12 +155,12 @@ export const InventoryFurnitureView: FC<InventoryFurnitureViewProps> = props =>
     if(!groupItems || !groupItems.length) return <InventoryCategoryEmptyView title={ LocalizeText('inventory.empty.title') } desc={ LocalizeText('inventory.empty.desc') } />;
 
     return (
-        <Grid gap={ 1 }>
+        <Grid overflow='hidden' gap={ 1 }>
             <Column gap={ 1 } size={ 7 } overflow="hidden">
                 <InventoryFurnitureSearchView groupItems={ groupItems } setGroupItems={ setFilteredGroupItems } />
                 <LayoutGridItem center={ false } pointer={ false } fullHeight fullWidth grow overflow="hidden" className="p-1">
-                    <Column fullHeight fullWidth position="relative" gap={ 1 } overflow="y-scroll" className="overflow-x-hidden" style={ { paddingRight: 0 } } >
-                        <AutoGrid overflow="hidden" style={ { height: 42 } } columnMinHeight={ 41 } columnMinWidth={ 41 } fullHeight={ false } columnCount={ 6 } fullWidth className="layout-grid-row" gap={ 1 }>
+                    <Column fullHeight fullWidth position="relative" gap={ 1 } className="overflow-x-hidden" style={ { paddingRight: 0 } } >
+                        <AutoGrid gap={ 1 } columnMinHeight={ 40 } columnMinWidth={ 40 } fullHeight={ false } className="layout-grid-row overflow-x-hidden position-relative justify-content-center" columnCount={ 6 }>
                             { filteredGroupItems && (filteredGroupItems.length > 0) && filteredGroupItems.map((item, index) => <InventoryFurnitureItemView key={ index } groupItem={ item } />) }
                         </AutoGrid>
                     </Column>

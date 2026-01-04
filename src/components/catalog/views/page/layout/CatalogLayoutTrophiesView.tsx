@@ -33,7 +33,7 @@ export const CatalogLayoutTrophiesView: FC<CatalogLayoutProps> = props =>
     }, [ currentOffer, trophyText, setPurchaseOptions ]);
 
     return (
-        <Column fullHeight>
+        <Column overflow='hidden' fullHeight>
             { !currentOffer &&
                 <Column className="catalog-item-preview" center overflow="hidden" shrink>
                     <Flex fullHeight>

@@ -14,7 +14,7 @@ export const CatalogLayoutRoomBundleView: FC<CatalogLayoutProps> = props =>
     return (
         <>
             <CatalogFirstProductSelectorWidgetView />
-            <Column fullHeight>
+            <Column overflow='hidden' fullHeight>
                 <Base className="catalog-item-preview" overflow="hidden" shrink position="relative">
                     { !!page.localization.getImage(1) &&
                         <LayoutImage className="flex-grow-1" imageUrl={ page.localization.getImage(1) } /> }

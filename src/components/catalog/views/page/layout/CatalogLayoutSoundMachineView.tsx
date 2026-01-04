@@ -69,7 +69,7 @@ export const CatalogLayoutSoundMachineView: FC<CatalogLayoutProps> = props =>
 
     return (
         <>
-            <Column fullHeight>
+            <Column overflow='hidden' fullHeight>
                 { !currentOffer &&
                     <Column className="catalog-item-preview" center overflow="hidden" shrink>
                         <Flex fullHeight>

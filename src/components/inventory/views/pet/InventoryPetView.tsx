@@ -66,11 +66,11 @@ export const InventoryPetView: FC<InventoryPetViewProps> = props =>
     if(!petItems || !petItems.length) return <InventoryCategoryEmptyView title={ LocalizeText('inventory.empty.pets.title') } desc={ LocalizeText('inventory.empty.pets.desc') } />;
 
     return (
-        <Grid gap={ 1 }>
+        <Grid overflow='hidden' gap={ 1 }>
             <Column size={ 7 } overflow="hidden">
                 <LayoutGridItem center={ false } pointer={ false } fullHeight fullWidth grow overflow="hidden" className="p-1">
-                    <Column fullHeight fullWidth position="relative" gap={ 1 } overflow="y-scroll" className="overflow-x-hidden" style={ { paddingRight: 0 } } >
-                        <AutoGrid overflow="hidden" gap={ 1 } columnMinHeight={ 50 } columnMinWidth={ 50 } fullHeight={ false } className="layout-grid-row position-relative justify-content-center" columnCount={ 5 }>
+                    <Column fullHeight fullWidth position="relative" gap={ 1 } className="overflow-x-hidden" style={ { paddingRight: 0 } } >
+                        <AutoGrid gap={ 1 } columnMinHeight={ 50 } columnMinWidth={ 50 } fullHeight={ false } className="layout-grid-row position-relative justify-content-center" columnCount={ 5 }>
                             { petItems && (petItems.length > 0) && petItems.map(item => <InventoryPetItemView key={ item.petData.id } petItem={ item } />) }
                         </AutoGrid>
                     </Column>

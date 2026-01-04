@@ -17,7 +17,7 @@ export const CatalogLayouGuildCustomFurniView: FC<CatalogLayoutProps> = props =>
     const { currentOffer = null, currentPage = null } = useCatalog();
     
     return (
-        <Column fullHeight>
+        <Column overflow='hidden' fullHeight>
             { !currentOffer &&
                 <Column className="catalog-item-preview" center overflow="hidden" shrink>
                     <Flex fullHeight>

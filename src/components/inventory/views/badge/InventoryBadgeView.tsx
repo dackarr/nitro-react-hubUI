@@ -34,11 +34,11 @@ export const InventoryBadgeView: FC<{}> = props =>
     }, []);
 
     return (
-        <Grid gap={ 1 }>
-            <Column size={ 7 } overflow="hidden">
-                <LayoutGridItem center={ false } pointer={ false } fullHeight fullWidth grow overflow="hidden" className="p-1">
-                    <Column fullHeight fullWidth position="relative" gap={ 1 } overflow="y-scroll" className="overflow-x-hidden" style={ { paddingRight: 0 } } >
-                        <AutoGrid overflow="hidden" style={ { marginRight: '2px' } } gap={ 1 } columnMinHeight={ 50 } columnMinWidth={ 50 } fullHeight={ false } className="layout-grid-row position-relative justify-content-center" columnCount={ 5 }>
+        <Grid overflow='hidden' gap={ 1 }>
+            <Column overflow='hidden' size={ 7 }>
+                <LayoutGridItem center={ false } pointer={ false } fullHeight fullWidth grow className="p-1">
+                    <Column fullHeight fullWidth position="relative" gap={ 1 } style={ { paddingRight: 0 } } >
+                        <AutoGrid style={ { marginRight: '2px' } } gap={ 1 } columnMinHeight={ 45 } columnMinWidth={ 45 } fullHeight={ false } className="layout-grid-row overflow-x-hidden position-relative justify-content-center" columnCount={ 5 }>
                             { badgeCodes && (badgeCodes.length > 0) && badgeCodes.map((badgeCode, index) =>
                             {
                                 if(isWearingBadge(badgeCode)) return null;
@@ -50,10 +50,10 @@ export const InventoryBadgeView: FC<{}> = props =>
                 </LayoutGridItem>
             </Column>
             <Column className="justify-content-between layout-grid-item p-1" gap={ 2 } size={ 5 } overflow="auto">
-                <Column overflow="hidden" fullHeight fullWidth gap={ 2 }>
+                <Column fullHeight fullWidth gap={ 2 }>
                     <Text style={ { fontSize: '12px' } } fontWeight="bold">{ LocalizeText('inventory.badges.activebadges') }</Text>
                     <Flex column fullHeight fullWidth position="relative" className="overflow-y-scroll overflow-x-hidden" style={ { paddingRight: '0.rem' } }>
-                        <AutoGrid overflow="hidden" gap={ 1 } className="layout-grid-row overflow-x-hidden" fullWidth columnCount={ 4 }>
+                        <AutoGrid gap={ 1 } className="layout-grid-row overflow-x-hidden" fullWidth columnCount={ 4 }>
                             { activeBadgeCodes && (activeBadgeCodes.length > 0) && activeBadgeCodes.map((badgeCode, index) => <InventoryBadgeItemView key={ index } badgeCode={ badgeCode } />) }
                         </AutoGrid>
                     </Flex>

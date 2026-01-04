@@ -67,11 +67,11 @@ export const InventoryBotView: FC<InventoryBotViewProps> = props =>
     if(!botItems || !botItems.length) return <InventoryCategoryEmptyView title={ LocalizeText('inventory.empty.bots.title') } desc={ LocalizeText('inventory.empty.bots.desc') } />;
 
     return (
-        <Grid gap={ 1 }>
-            <Column size={ 7 } overflow="hidden">
-                <LayoutGridItem center={ false } pointer={ false } fullHeight fullWidth grow overflow="hidden" className="p-1">
-                    <Column fullHeight fullWidth position="relative" gap={ 1 } overflow="y-scroll" className="overflow-x-hidden" style={ { paddingRight: 0 } } >
-                        <AutoGrid overflow="hidden" gap={ 1 } columnMinHeight={ 50 } columnMinWidth={ 50 } fullHeight={ false } className="layout-grid-row position-relative justify-content-center" columnCount={ 5 }>
+        <Grid overflow='hidden' gap={ 1 }>
+            <Column overflow='hidden' size={ 7 } >
+                <LayoutGridItem center={ false } pointer={ false } fullHeight fullWidth grow className="p-1">
+                    <Column fullHeight fullWidth position="relative" gap={ 1 } style={ { paddingRight: 0 } } >
+                        <AutoGrid gap={ 1 } columnMinHeight={ 50 } columnMinWidth={ 50 } fullHeight={ false } className="layout-grid-row overflow-x-hidden position-relative justify-content-center" columnCount={ 5 }>
                             { botItems && (botItems.length > 0) && botItems.map(item => <InventoryBotItemView key={ item.botData.id } botItem={ item } />) }
                         </AutoGrid>
                     </Column>

@@ -193,7 +193,7 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
     if(!currentOffer) return null;
 
     return (
-        <Column fullHeight fullWidth>
+        <Column overflow='hidden' fullHeight fullWidth>
             <Column fullHeight center={ !currentOffer } size={ 5 } overflow="hidden">
                 { !currentOffer &&
                     <>
