@@ -36,8 +36,8 @@ export const ChatInputEmojiSelectorView: FC<ChatInputEmojiSelectorViewProps> = p
     useEffect(() =>
     {
         Promise.all([
-            fetch('/emojis/emoji-groups.json').then(response => response.json()),
-            fetch('/emojis/emojis.json').then(response => response.json())
+            fetch('./emojis/emoji-groups.json').then(response => response.json()),
+            fetch('./emojis/emojis.json').then(response => response.json())
         ])
         .then(([ groups, emojis ]) =>
         {
