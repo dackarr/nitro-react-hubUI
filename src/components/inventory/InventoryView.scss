@@ -4,6 +4,11 @@
     min-width: $inventory-width;
     min-height: $inventory-height;
 
+    .badge-image {
+        width: 40px!important;
+        height: 40px!important;
+    }
+
     .empty-image {
         background: url('@/assets/images/inventory/empty.png');
         width: 129px;
