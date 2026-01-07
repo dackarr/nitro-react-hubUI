@@ -163,6 +163,7 @@ export const HotelView: FC<{}> = props =>
                     <div className={ `drape position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }
                         style={ (drape && drape.length) ? { backgroundImage: `url(${ drape })` } : {} }/>
                     <div className={ `left ${ (left && left.length) ? 'left-normal' : '' } position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }>
+                        <div className={ `left-image ${ (left && left.length) ? 'left-normal' : '' } position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
                         <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 4, pointerEvents: 'none' }}>
                                 <Flex className="avatar-image">
                                     <LayoutAvatarImageView figure={ userFigure } direction={ 2 }/>

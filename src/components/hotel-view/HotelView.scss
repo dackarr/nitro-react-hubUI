@@ -27,7 +27,7 @@
 			filter: brightness(.4) contrast(1.2) saturate(2);
 		}
 
-		.left {
+		.left-image {
 			filter: brightness(.4) contrast(1.2) saturate(2);
 		}
 
@@ -106,7 +106,9 @@
 	}
 	
 	.left-normal {
-		background: url('@/assets/images/landingview/left_normal.png');
+		.left-image {
+			background: url('@/assets/images/landingview/left_normal.png');
+		}
 		width: 1613px;
 		height: 807px;
 	}
@@ -149,14 +151,12 @@
 		top: 0px;
 		left: 0px;
 		z-index: 5;
-		position: relative !important;
 		margin: auto;
 		background-repeat: no-repeat;
 		background-position: top center;
 	}
 
 	.left {
-		background-image: url('@/assets/images/landingview/left_normal.png') !important;
 		background: no-repeat;
 		top: 0px;
 		right: 0px;
@@ -166,6 +166,9 @@
 		animation-iteration-count: 1;
 		animation-name: slideUp;
 		animation-duration: 1s;
+		.left-image {
+			background-image: url('@/assets/images/landingview/left_normal.png') !important;
+		}
 	}
 
 	.right {
