@@ -1,5 +1,6 @@
 .animation-container {
-  position: relative;
+  position: absolute;
+  top: 0px;
   width: 100%;
   height: 100%;
   z-index: 5;
@@ -56,9 +57,11 @@
 
 @keyframes drive {
   from {
-    transform: translate(100vw, -50vh);
+    top: -40%;
+    left: 100%;
   }
   to {
-    transform: translate(-25vh, 63vh);
+    top: 80%;
+    left: -20%;
   }
 }

@@ -153,37 +153,36 @@ export const HotelView: FC<{}> = props =>
                     </div>
                 </div>
             </div>
-            <div className={`w-100 h-100 relative hotelview${ isFilter ? '-filtered' : '' }`}>
+            <div className={`w-100 h-100 relative hotelview${ isFilter ? '-filtered' : '' }`} style={{zIndex: 5}}>
                 <div className='w-100 h-100 relative'>
                     { isFilter &&
                         <div className="position-absolute night-windows"/>
                     }
                     <div className={ `right ${(right && right.length) ? 'grass' : ''} position-absolute z-n1 ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
                     <div className={ `right ${(right && right.length) ? 'crossroads' : ''} position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
-                    <div className={ `sun overlay position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
                     <div className={ `drape position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }
                         style={ (drape && drape.length) ? { backgroundImage: `url(${ drape })` } : {} }/>
-                    <div className={ `left ${ (left && left.length) ? 'left-normal' : '' } position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                    <div className={ `left ${ (left && left.length) ? 'left-normal' : '' } position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }>
+                        <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 4, pointerEvents: 'none' }}>
+                                <Flex className="avatar-image">
+                                    <LayoutAvatarImageView figure={ userFigure } direction={ 2 }/>
+                                </Flex>
+                                <Flex style={ { zIndex: 3 } } className="welcome-message">
+                                    <Column gap={ 1 } className="text-welcome-message">
+                                        <Text
+                                            className="text-black font-bold">{ LocalizeText('landing.view.generic.welcome.title').replace('%username%', GetSessionDataManager().userName) }
+                                        </Text>
+                                        <Text className="text-black subtitle">{ dynamicText }</Text>
+                                    </Column>
+                                </Flex>
+                        </div>
+                        <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 20, pointerEvents: 'none' }}>
+                            <CarAnimationView />
+                        </div>
+                        <div className={ `sun overlay position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
+                    </div>
                     <div className={ `right-repeat position-absolute ${ isFullscreen ? 'hotelview-fullscreen' : '' }` }/>
                 </div>
-            </div>
-            <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 20, pointerEvents: 'none' }}>
-                <CarAnimationView />
-
-                
-            </div>
-            <div className={`position-absolute hotelview${ isFilter ? '-filtered' : '' } top-0 start-0 w-100 h-100`} style={{ zIndex: 4, pointerEvents: 'none' }}>
-                    <Flex className="avatar-image">
-                        <LayoutAvatarImageView figure={ userFigure } direction={ 2 }/>
-                    </Flex>
-                    <Flex style={ { zIndex: 3 } } className="welcome-message">
-                        <Column gap={ 1 } className="text-welcome-message">
-                            <Text
-                                className="text-black font-bold">{ LocalizeText('landing.view.generic.welcome.title').replace('%username%', GetSessionDataManager().userName) }
-                            </Text>
-                            <Text className="text-black subtitle">{ dynamicText }</Text>
-                        </Column>
-                    </Flex>
             </div>
         </div>
     );
