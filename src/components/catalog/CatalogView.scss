@@ -193,6 +193,10 @@
 
 .catalog-item-preview {
     min-height: 255px;
+    display: flex;
+    .badge-image {
+        margin: auto;
+    }
 }
 
 .purchase-container {
